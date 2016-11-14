@@ -40,15 +40,15 @@ public class FangBot extends DefaultBWListener {
     @Override
     public void onStart() {
         game = mirror.getGame();
-        game.setLocalSpeed(10);
+        game.setLocalSpeed(15);
         self = game.self();
         //game.sendText("show me the money");
         //Use BWTA to analyze map
         //This may take a few minutes if the map is processed first time!
-        System.out.println("Analyzing map...");
+      //  System.out.println("Analyzing map...");
         BWTA.readMap();
         BWTA.analyze();
-        System.out.println("Map data ready");
+        //System.out.println("Map data ready");
         for (Unit u : self.getUnits()){
         	fang.addUnit(uType.eval(u.getType()).toString(), u);
         }
@@ -77,12 +77,14 @@ public class FangBot extends DefaultBWListener {
         //	builder.drawBox(game, myUnit.getPosition(), 20, 20, myUnit.getType());
         	    		
     		if (myUnit.getType() == UnitType.Terran_Command_Center){
-    			Position supplies = new Position(myUnit.getPosition().getX()  + 100, myUnit.getPosition().getY() + 30);
-    			builder.drawBox(game, supplies, 200, 200, null);
     			fangState.Produce(myUnit, UnitType.Terran_SCV, game);
-    			
 				ArrayList<Unit> CC = fang.getUnitList(unitEnum.Type.CC.toString());
 				Position center = builder.getCenter(game.neutral().getUnits());
+				Position dir = builder.normalize(builder.getDir(CC.get(0).getPosition(), center));
+				System.out.println("The dir is " + dir.getX() + " " + dir.getY());
+				
+				Position supplies = new Position(myUnit.getPosition().getX()  + ((250 + UnitType.Terran_Command_Center.width())* dir.getX()), myUnit.getPosition().getY() + (30 * dir.getY()));
+				builder.drawBox(game, supplies, 200, 200, null);
 				builder.drawLine(game, center, CC.get(0).getPosition());
 				//	game.drawLineMap(neutralUnit.getPosition(), CC.get(0).getPosition(), Color.Blue);
 	//	builder.drawLine(game, , );
