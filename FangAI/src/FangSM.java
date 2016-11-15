@@ -68,7 +68,7 @@ public class FangSM {
 	private void mineClosest(Unit u, Game game){
 		ArrayList<Unit> cc = fang.getUnitList(unitEnum.Type.CC.toString());
 		builder.drawLine(game, u.getPosition(), cc.get(0).getPosition());
-		System.out.println(cc.size());
+	//	System.out.println(cc.size());
 		
 	    if (u.isIdle()) {
 	        Unit closestMineral = null;

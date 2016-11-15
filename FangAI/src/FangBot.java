@@ -23,7 +23,7 @@ public class FangBot extends DefaultBWListener {
     private FangAi fang = new FangAi();
     private FangSM fangState = new FangSM(fang);
     private BuildingUtil builder = new BuildingUtil();
-
+    private ArrayList<Base> allBases = new ArrayList<Base>();
     public void run() {
         mirror.getModule().setEventListener(this);
         mirror.startGame();
@@ -31,9 +31,7 @@ public class FangBot extends DefaultBWListener {
 
     @Override
     public void onUnitCreate(Unit unit) {
-    	if (unit.getType() == UnitType.Terran_SCV){
-    		//fang.addWorker(unit);
-    	}
+    		
         //System.out.println("New unit discovered " + unit.getType());
     }
 
@@ -51,7 +49,11 @@ public class FangBot extends DefaultBWListener {
         //System.out.println("Map data ready");
         for (Unit u : self.getUnits()){
         	fang.addUnit(uType.eval(u.getType()).toString(), u);
+        	if (u.getType() == UnitType.Terran_Command_Center){
+        		allBases.add(new Base(u, game));
+        	}
         }
+        
         
         
      //   int i = 0;
@@ -74,20 +76,9 @@ public class FangBot extends DefaultBWListener {
         for (Unit myUnit : self.getUnits()) 
         {
             units.append(myUnit.getType()).append(" ").append(myUnit.getTilePosition()).append("\n");
-        //	builder.drawBox(game, myUnit.getPosition(), 20, 20, myUnit.getType());
-        	    		
     		if (myUnit.getType() == UnitType.Terran_Command_Center){
     			fangState.Produce(myUnit, UnitType.Terran_SCV, game);
-				ArrayList<Unit> CC = fang.getUnitList(unitEnum.Type.CC.toString());
-				Position center = builder.getCenter(game.neutral().getUnits());
-				Position dir = builder.normalize(builder.getDir(CC.get(0).getPosition(), center));
-				System.out.println("The dir is " + dir.getX() + " " + dir.getY());
-				
-				Position supplies = new Position(myUnit.getPosition().getX()  + ((250 + UnitType.Terran_Command_Center.width())* dir.getX()), myUnit.getPosition().getY() + (30 * dir.getY()));
-				builder.drawBox(game, supplies, 200, 200, null);
-				builder.drawLine(game, center, CC.get(0).getPosition());
-				//	game.drawLineMap(neutralUnit.getPosition(), CC.get(0).getPosition(), Color.Blue);
-	//	builder.drawLine(game, , );
+				allBases.get(0).drawLayout(game);
     			
     		}
     		else {
@@ -100,10 +91,7 @@ public class FangBot extends DefaultBWListener {
         //game.drawTextScreen(50, 25,"" + myUnit.getType());
     }
     public boolean isMineral(Unit u){
-    	if (u.getType() == UnitType.Resource_Mineral_Field || u.getType() == UnitType.Resource_Mineral_Field_Type_2 || u.getType() == UnitType.Resource_Mineral_Field_Type_3){
-    		return true;
-    	}
-    	return false;
+    	return u.getType().isMineralField();
     }
     public void cheese(Unit myUnit){
 

@@ -31,9 +31,20 @@ public class BuildingUtil {
 		return dir;
 	}
 	public Position normalize(Position a){
-		System.out.println("The normal is " + Math.sqrt((Math.pow(a.getX(), 2)+ Math.pow(a.getY(), 2))));
+	//	System.out.println("The normal is " + Math.sqrt((Math.pow(a.getX(), 2)+ Math.pow(a.getY(), 2))));
 		float magnitude =  (float)Math.sqrt((Math.pow(a.getX(), 2)+ Math.pow(a.getY(), 2)));
 		return new Position((int) Math.round(a.getX()/magnitude),(int) Math.round(a.getY()/magnitude));
+	}
+	public ArrayList<Unit> getBaseResources(Position p, Game g){
+		ArrayList<Unit> resourcesInRadius = new ArrayList<Unit>();
+		List<Unit> units = g.getUnitsInRadius(p, 300);
+		for (Unit u : units){
+			
+			if (u.getType().isMineralField() || u.getType() == UnitType.Resource_Vespene_Geyser){
+				if (!resourcesInRadius.contains(u)) resourcesInRadius.add(u);
+			}
+		}
+		return resourcesInRadius;
 	}
 	public Position getCenter(ArrayList<Unit> units){
 		int avgX = 0;
