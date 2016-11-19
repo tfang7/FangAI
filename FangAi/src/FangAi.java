@@ -14,19 +14,25 @@ public class FangAi {
 	
 	public void addUnit(String type, Unit u){
 		if (units.get(type) == null){
-			units.put(type, new ArrayList<Unit>());
-			units.get(type).add(u);
+			ArrayList<Unit> list = new ArrayList<Unit>();
+			list.add(u);
+			units.put(type, list );
 		}
 		else {
 			ArrayList<Unit> list = units.get(type);
 			if (!list.contains(u)){
 				list.add(u);
+				units.put(type, list);
 			}
 		}
 	}
 	public void removeUnit(String type, Unit u){
-		if (units.get(type) != null){
-			units.get(type).remove(u);
+		ArrayList<Unit> removed = units.get(type);
+		if (removed != null){
+			if (removed.contains(u)){
+				removed.remove(u);
+				units.put(type, removed);
+			}
 		}
 	}
 	public int getUnitsLength(String type){

@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 import bwapi.Color;
 import bwapi.DefaultBWListener;
@@ -6,8 +8,10 @@ import bwapi.Game;
 import bwapi.Mirror;
 import bwapi.Player;
 import bwapi.Position;
+import bwapi.PositionOrUnit;
 import bwapi.TilePosition;
 import bwapi.Unit;
+import bwapi.UnitCommand;
 import bwapi.UnitType;
 import bwta.BWTA;
 import bwta.BaseLocation;
@@ -17,30 +21,46 @@ public class FangBot extends DefaultBWListener {
     private Mirror mirror = new Mirror();
     
     private Game game;
-    
+    private Base mainBase;
     private Player self;
     private unitEnum uType = new unitEnum();
     private FangAi fang = new FangAi();
     private FangSM fangState = new FangSM(fang);
     private BuildingUtil builder = new BuildingUtil();
     private ArrayList<Base> allBases = new ArrayList<Base>();
+    private ArrayList<UnitType> buildOrder = new ArrayList<UnitType>();
+    private BaseLocation target = null;
+    private Position enemyLastSeen;
+    private ArrayList<BaseLocation> checkedBases = new ArrayList<BaseLocation>();
+    private HashSet<Position> enemyBuildingMemory = new HashSet<Position>();
+
     public void run() {
         mirror.getModule().setEventListener(this);
         mirror.startGame();
     }
-
+    @Override
+    public void onUnitDestroy(Unit unit){
+    	String ftype = uType.eval(unit.getType()).toString();
+		fang.removeUnit(ftype, unit);
+    	
+    }
     @Override
     public void onUnitCreate(Unit unit) {
-    		
+    	String ftype = uType.eval(unit.getType()).toString();
+    	fang.addUnit(ftype, unit);
+    	if (unit.getType() == UnitType.Terran_SCV){
+    	//	fang.addUnit(ftype, unit);
+    		//fang.addWorker(unit);
+    	}
         //System.out.println("New unit discovered " + unit.getType());
     }
 
     @Override
     public void onStart() {
         game = mirror.getGame();
-        game.setLocalSpeed(15);
+        game.setLocalSpeed(5);
         self = game.self();
-        //game.sendText("show me the money");
+       // game.sendText("show me the money");
         //Use BWTA to analyze map
         //This may take a few minutes if the map is processed first time!
       //  System.out.println("Analyzing map...");
@@ -48,21 +68,28 @@ public class FangBot extends DefaultBWListener {
         BWTA.analyze();
         //System.out.println("Map data ready");
         for (Unit u : self.getUnits()){
-        	fang.addUnit(uType.eval(u.getType()).toString(), u);
+        	String ftype = uType.eval(u.getType()).toString();
+        	//System.out.println("Ftype is " + ftype);
+        	
+        //	fang.addUnit(ftype, u);
+        	//System.out.println("CC hashmap " + fang.getUnitsLength(ftype));
         	if (u.getType() == UnitType.Terran_Command_Center){
-        		allBases.add(new Base(u, game));
+        		mainBase = new Base(u, game);
+        		allBases.add(mainBase);
         	}
+
+        	
         }
         
         
         
-     //   int i = 0;
-       /* for(BaseLocation baseLocation : BWTA.getBaseLocations()){
+        
+  /*      int i = 0;
+        for(BaseLocation baseLocation : BWTA.getBaseLocations()){
         	System.out.println("Base location #" + (++i) + ". Printing location's region polygon:");
         	for(Position position : baseLocation.getRegion().getPolygon().getPoints()){
         		System.out.print(position + ", ");
         	}
-        	System.out.println();
         }*/
 
     }
@@ -72,31 +99,232 @@ public class FangBot extends DefaultBWListener {
         //game.setTextSize(10);
     	//game.drawTextScreen(10, 10, fang.workers.toString());
         StringBuilder units = new StringBuilder("My units:\n");
+        checkEnemyMemory();
         //iterate through my units
+        int supplyDiff = game.self().supplyTotal() - game.self().supplyUsed() - checkProductionRate();
+        boolean buildPylon = supplyDiff <= (checkProductionRate() + 5) && self.minerals() >= 100;
+      // System.out.println("There are " + fang.getUnitsLength(uType.eval(UnitType.Terran_SCV).toString()) + " SCVS");
+     //   System.out.println("There are " + checkProductionRate() + " Units being prodcued");
+        if (enemyLastSeen != null){
+        	game.drawLineMap(enemyLastSeen, mainBase.CC.getPosition(), Color.Red);
+        }
         for (Unit myUnit : self.getUnits()) 
         {
+    //		System.out.println(myUnit.getHitPoints() + " " + myUnit.getInitialHitPoints());
+    		
+
+        	if (myUnit.getType() == UnitType.Terran_SCV){
+        		if (enemyBuildingMemory.size() == 0 && self.hasUnitTypeRequirement(UnitType.Terran_Supply_Depot)){
+        			
+        			if (target == null){
+        				target = getDest();
+        			}
+            		if (mainBase.scout == null){
+            			if (!mainBase.builders.contains(myUnit)){
+            				mainBase.scout = myUnit;
+            			}
+            		}
+        			if (myUnit == mainBase.scout){
+        				if (target != null && myUnit.getDistance(target.getPosition()) < 10) {
+        					checkedBases.add(target);
+            				System.out.println("Dist to Target: " + myUnit.getDistance(target));
+            				System.out.println(checkedBases.size());
+            				target = null;
+        				}
+        				myUnit.move(target.getPosition());
+        			}
+        			
+        		}
+
+        		if (mainBase.builders != null && mainBase.builders.size() < 2){
+        		//	String ftype = uType.eval(myUnit.getType()).toString();
+        			mainBase.addBuilder(myUnit);
+        		//	mainBase.builders.add(fang.getUnitList(ftype).get(0));
+        			
+        			
+        			
+        			//cheese(myUnit);
+        		}
+    			if (mainBase.builders.contains(myUnit)){
+    			    if (supplyDiff >= 2 && self.hasUnitTypeRequirement(UnitType.Terran_Supply_Depot) && self.minerals() > 150 
+    			    		&& numUnits(UnitType.Terran_Barracks) < mainBase.maxBarracks){
+    			    	
+    					TilePosition toBuild = builder.getBuildTile(myUnit, UnitType.Terran_Barracks, mainBase.supplies.toTilePosition(), game);
+    					fangState.Produce(myUnit, UnitType.Terran_Barracks, toBuild);
+    				}
+    			    else if (buildPylon){
+    					TilePosition toBuild = builder.getBuildTile(myUnit, UnitType.Terran_Supply_Depot, mainBase.supplies.toTilePosition(), game);
+    					fangState.Produce(myUnit, UnitType.Terran_Supply_Depot, toBuild);
+    				}
+    				else {
+        				fangState.Action(myUnit, game, FangSM.Role.HARVESTER);
+        			}
+        		}
+    			else {
+    				fangState.Action(myUnit, game, FangSM.Role.HARVESTER);
+    			}
+        	//	
+        	//	
+        	}
             units.append(myUnit.getType()).append(" ").append(myUnit.getTilePosition()).append("\n");
-    		if (myUnit.getType() == UnitType.Terran_Command_Center){
-    			fangState.Produce(myUnit, UnitType.Terran_SCV, game);
-				allBases.get(0).drawLayout(game);
+    		if (myUnit.getType() == UnitType.Terran_Command_Center && numUnits(UnitType.Terran_SCV) < mainBase.maxWorkers){
+    			fangState.Produce(myUnit, UnitType.Terran_SCV); 			
+    			mainBase.drawLayout(game);
+			
+    		}
+    		if (myUnit.getType() == UnitType.Terran_Barracks){
+    			fangState.Produce(myUnit, UnitType.Terran_Marine);
     			
     		}
-    		else {
-        		cheese(myUnit);
+    		if (myUnit.getType() == UnitType.Terran_Marine && myUnit.exists()){
+    			PositionOrUnit attackPos = new PositionOrUnit(mainBase.CC);
+    			fangState.Action(myUnit, game, FangSM.Role.RANGED, mainBase.CC);
+
+
+   		/*	if (game.enemy().getUnits().size() > 0){
+    				Position enemyCenter = builder.getCenter(game.enemy().getUnits());
+    				enemyLastSeen = enemyCenter;
+    				PositionOrUnit pouOrUnit = new PositionOrUnit(enemyCenter);
+    				myUnit.issueCommand(UnitCommand.attack(myUnit, pouOrUnit));
+    				//builder.drawLine(game, myUnit.getPosition(), enemyCenter);
+    			}*/
+    			//else {
+    		/*		if (numUnits(UnitType.Terran_Marine) > 36) {
+    					if (game.enemy().getUnits().size() > 0){
+    					}
+    					for (Position p : enemyBuildingMemory){
+    						if (p != null){
+    							//System.out.println("attackinging..." + p.getPoint());
+    							PositionOrUnit pouOrUnit = new PositionOrUnit(p);
+    							myUnit.issueCommand(UnitCommand.attack(myUnit, pouOrUnit));
+    							break;
+    						}
+    					}
+    					
+    					//Position[] e = (Position[]) enemyBuildingMemory.toArray(); 
+    					//PositionOrUnit pouOrUnit = new PositionOrUnit(e[0]);
+						//myUnit.issueCommand(UnitCommand.attack(myUnit, pouOrUnit));
+						//builder.drawLine(game, myUnit.getPosition(), enemyLastSeen);
+						
+    				}*/
+    			//}
+    /*				else if (enemyLastSeen == null && numUnits(UnitType.Terran_Marine) > 24) {
+    					
+    				
+    				if (target == null){
+    					target = getDest();
+    				}
+    				else if (target != null && myUnit.getDistance(target.getPosition()) < 10) {
+    					checkedBases.add(target);
+        				System.out.println("Dist to Target: " + myUnit.getDistance(target));
+        				System.out.println(checkedBases.size());
+        				target = null;
+    				}
+						PositionOrUnit pouOrUnit = new PositionOrUnit(target.getPosition());
+						myUnit.issueCommand(UnitCommand.attack(myUnit, pouOrUnit));
+						builder.drawLine(game, myUnit.getPosition(), target.getPosition());*/
+					//	if (myUnit.getDistance(baseLocation.getPosition()) < 10){
+					//		checkedBases.add(baseLocation);
+					//	}
+    						
+    						//target
+    					
+    				
+    				//myUnit.issueCommand(UnitCommand.)
+    			//}
+    		//	}
+
     		}
+
+           game.drawTextScreen(50, 25,"" + myUnit.getType());
+
         }
 
         //draw my units on screen
-      //  game.drawTextScreen(10, 25, units.toString());
-        //game.drawTextScreen(50, 25,"" + myUnit.getType());
+        //game.drawTextScreen(10, 25, units.toString());
+    }
+    public int numUnits(UnitType unitType){
+    	
+    	int num = fang.getUnitsLength(uType.eval(unitType).toString());
+    //	System.out.println("There are " + num + " units");
+    	return num;
+    }
+    public BaseLocation getDest(){
+    	for (BaseLocation baseLocation : BWTA.getStartLocations()){
+			if (!checkedBases.contains(baseLocation) && !game.isVisible(baseLocation.getTilePosition()) )
+			{
+				return baseLocation;
+			}
+    	}
+    	return null;
+    }
+    public int checkProductionRate() {
+    	int productionRate = 0;
+    	for (Unit u : self.getUnits()){
+    		if (u.isTraining()){
+    			productionRate++;
+    		}
+    	}
+    	return productionRate;
+    }
+    public Unit getClosestEnemy(Unit u, List<Unit> enemies){
+    	Unit closest = enemies.get(0);
+    	int min = closest.getDistance(u);
+    	for (Unit e : enemies){
+    		if (e.getDistance(u) < min){
+    			closest = e;
+    			min = closest.getDistance(u);
+    		}
+    	}
+    	return closest;
     }
     public boolean isMineral(Unit u){
     	return u.getType().isMineralField();
     }
     public void cheese(Unit myUnit){
-
-		if (fangState.Action(myUnit, game));
-
+    	if (mainBase.builders != null){
+    		boolean buildPylon = game.self().supplyTotal() - game.self().supplyUsed() < 2 && self.minerals() >= 100;
+    		
+    		if (myUnit.getType() == UnitType.Terran_SCV){
+    			FangSM.Role r = FangSM.Role.HARVESTER;
+    	   		if (mainBase.builders.contains(myUnit)){
+        			r = FangSM.Role.BUILDER;
+    				if (buildPylon){
+    					fangState.Produce(myUnit, UnitType.Terran_Supply_Depot, mainBase.CC.getTilePosition());
+    				}
+        		}
+    	   		else{
+    	   			fangState.Action(myUnit, game, r );
+    	   		}
+    	   		
+    		}
+    	}
+    }
+    public void checkEnemyMemory(){
+    	for (Unit u : game.enemy().getUnits()){
+    		if (u.getType().isBuilding()){
+    			if (!enemyBuildingMemory.contains(u.getPosition())) enemyBuildingMemory.add(u.getPosition());
+    		}
+    	}
+    	for (Position p : enemyBuildingMemory){
+    		TilePosition tileMemory = new TilePosition(p.getX()/32, p.getY()/32);
+    		if (game.isVisible(tileMemory)){
+    			boolean buildingStillThere = false;
+    			for (Unit u: game.enemy().getUnits()){
+    				if (u.getType().isBuilding() && (u.getPosition() == p)){
+    					buildingStillThere = true;
+    					break;
+    				}
+    			}
+    			if (!buildingStillThere){
+    				enemyBuildingMemory.remove(p);
+    				break;
+    			}
+    		}
+    	}
+    }
+    public void initBuildorder(){
+    	
     }
     public static void main(String[] args) {
         new FangBot().run();
