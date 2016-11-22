@@ -52,6 +52,24 @@ public class FangSM {
 				return false;
 		}
 	}
+	public boolean Action(Unit u, Game game, Role state, PositionOrUnit target){
+		//Role state = determineState(u, enumerator.eval(u.getType()), builders);
+		switch (state){
+			case HARVESTER:
+				mineClosest(u, game);
+				return true;
+			case MELEE:
+				System.out.println("Melee");
+				return true;
+			case RANGED:
+				Kite(u, target);
+				return true;
+			case PRODUCER:
+				return true;
+			default: 
+				return false;
+		}
+	}
 	public Role determineState(Unit u, unitEnum.Type type, ArrayList<Unit> b){
 		switch(type){
 			case SCV:
@@ -107,7 +125,7 @@ public class FangSM {
 				PositionOrUnit attackPos = target;
 				unit.issueCommand(UnitCommand.attack(unit, attackPos));;
 			}
-			else if (cd > 5 && unit.isAttacking()){
+			else if (cd > 0 && unit.isAttacking()){
 				unit.stop();
 				Position dir = buildUtil.getDir(target.getPosition(), unit.getPosition());			
 				dir = buildUtil.normalize(dir);

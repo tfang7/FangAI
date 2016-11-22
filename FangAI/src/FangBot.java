@@ -112,7 +112,7 @@ public class FangBot extends DefaultBWListener {
         {
     //		System.out.println(myUnit.getHitPoints() + " " + myUnit.getInitialHitPoints());
     		
-
+        	getNextExpansion(mainBase.CC);
         	if (myUnit.getType() == UnitType.Terran_SCV){
         		if (enemyBuildingMemory.size() == 0 && self.hasUnitTypeRequirement(UnitType.Terran_Supply_Depot)){
         			
@@ -127,8 +127,8 @@ public class FangBot extends DefaultBWListener {
         			if (myUnit == mainBase.scout){
         				if (target != null && myUnit.getDistance(target.getPosition()) < 10) {
         					checkedBases.add(target);
-            				System.out.println("Dist to Target: " + myUnit.getDistance(target));
-            				System.out.println(checkedBases.size());
+            			//	System.out.println("Dist to Target: " + myUnit.getDistance(target));
+            			//	System.out.println(checkedBases.size());
             				target = null;
         				}
         				myUnit.move(target.getPosition());
@@ -177,9 +177,33 @@ public class FangBot extends DefaultBWListener {
     			
     		}
     		if (myUnit.getType() == UnitType.Terran_Marine && myUnit.exists()){
-    			PositionOrUnit attackPos = new PositionOrUnit(mainBase.CC);
-    			fangState.Action(myUnit, game, FangSM.Role.RANGED, mainBase.CC);
+    			Unit attackEnemy = getClosestEnemy(myUnit, game.enemy().getUnits());
+    			if (attackEnemy.getDistance(myUnit) < 300){
+    				PositionOrUnit attackE = new PositionOrUnit(attackEnemy);
+    				fangState.Action(myUnit, game, FangSM.Role.RANGED, attackE.getUnit());
+    				break;
 
+    			}
+    			else if (numUnits(UnitType.Terran_Marine) > 24) {
+    				System.out.println(game.enemy().getUnits().size());
+    				if (game.enemy().getUnits().size() >= 0) {
+    					for (Position p : enemyBuildingMemory){
+    						if (p != null){
+    							//System.out.println("attackinging..." + p.getPoint());
+    							PositionOrUnit attackPos = new PositionOrUnit(p);
+    							game.drawLineMap(attackPos.getPosition(), myUnit.getPosition(), Color.Black);
+    							fangState.Action(myUnit, game, FangSM.Role.RANGED, attackPos);
+    							//myUnit.issueCommand(UnitCommand.attack(myUnit, pouOrUnit));
+    							break;
+    						}
+    					}
+    				}
+    				
+    			}
+    			
+    			
+        		//	PositionOrUnit attackPos = new PositionOrUnit(mainBase.CC);
+        		//	fangState.Action(myUnit, game, FangSM.Role.RANGED, mainBase.CC);
 
    		/*	if (game.enemy().getUnits().size() > 0){
     				Position enemyCenter = builder.getCenter(game.enemy().getUnits());
@@ -248,6 +272,18 @@ public class FangBot extends DefaultBWListener {
     	int num = fang.getUnitsLength(uType.eval(unitType).toString());
     //	System.out.println("There are " + num + " units");
     	return num;
+    }
+    public void getNextExpansion(Unit toCheck){
+    	BaseLocation closest = BWTA.getBaseLocations().get(0);
+    	for (BaseLocation baseLocation : BWTA.getBaseLocations()){
+    		if (baseLocation.isStartLocation()) continue;
+    		else if (baseLocation.getDistance(toCheck.getPosition()) > closest.getDistance(toCheck.getPosition())){
+    			closest = baseLocation;
+    			game.drawLineMap(closest.getPosition(), toCheck.getPosition(),Color.Red);
+    		}
+    	}
+    	game.drawLineMap(closest.getPosition(), toCheck.getPosition(),Color.Blue);
+    	
     }
     public BaseLocation getDest(){
     	for (BaseLocation baseLocation : BWTA.getStartLocations()){
