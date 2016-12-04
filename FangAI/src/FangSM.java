@@ -8,7 +8,8 @@ public class FangSM {
 		RANGED,
 		HARVESTER,
 		BUILDER,
-		PRODUCER
+		PRODUCER,
+		GAS
 	}
 	protected FangAi fang;
 	protected BuildingUtil buildUtil = new BuildingUtil();
@@ -16,11 +17,16 @@ public class FangSM {
 	public FangSM(FangAi f){
 		fang = f;
 	}
-	public boolean Action(Unit u, Game game, Role state){
+	public boolean Action(Unit u, Game game, Role state, FangAi fangController){
 		//Role state = determineState(u, enumerator.eval(u.getType()), builders);
 		switch (state){
 			case HARVESTER:
 				mineClosest(u, game);
+				return true;
+			case GAS:
+				//System.out.println("Gas" + fangController.getUnitList(enumerator.eval(UnitType.Terran_Refinery).toString()).size());
+				//test(game, fangController)
+				mineGas(u, game, fangController);
 				return true;
 			case MELEE:
 				System.out.println("Melee");
@@ -33,6 +39,42 @@ public class FangSM {
 			default: 
 				return false;
 		}
+	}
+	public boolean Action(Unit u, Game game, Role state){
+		//Role state = determineState(u, enumerator.eval(u.getType()), builders);
+		switch (state){
+			case HARVESTER:
+				mineClosest(u, game);
+				return true;
+			case GAS:
+			//	System.out.println("Gas");
+			//	mineGas(u, game);
+				return true;
+			case MELEE:
+				System.out.println("Melee");
+				return true;
+			case RANGED:
+				System.out.println("Ranged");
+				return true;
+			case PRODUCER:
+				return true;
+			default: 
+				return false;
+		}
+	}
+	public void test(Game g, FangAi fc){
+		ArrayList<Unit> refineries = fc.getUnitList(unitEnum.Type.REFINERY.toString());
+		System.out.println("drawing gas" + refineries.size());
+		ArrayList<Unit> cc = fang.getUnitList(unitEnum.Type.CC.toString());
+		System.out.println("There are " + cc.size() + "command centers");
+
+		System.out.println("There are " + refineries.size() + "refineries centers");
+		//g.drawLineMap(refineries.get(0).getPosition(), cc.get(0).getPosition(), Color.Cyan);
+	//	System.out.println("Gas");
+		//ArrayList<Unit> cc = fang.getUnitList(unitEnum.Type.CC.toString());
+		//ArrayList<Unit> refineries = fang.getUnitList(unitEnum.Type.REFINERY.toString());
+		//System.out.println("drawing gas" + refineries.size());
+
 	}
 	public boolean Action(Unit u, Game game, Role state, Unit target){
 		//Role state = determineState(u, enumerator.eval(u.getType()), builders);
@@ -125,7 +167,7 @@ public class FangSM {
 				PositionOrUnit attackPos = target;
 				unit.issueCommand(UnitCommand.attack(unit, attackPos));;
 			}
-			else if (cd > 0 && unit.isAttacking()){
+			else if (cd > 0){
 				unit.stop();
 				Position dir = buildUtil.getDir(target.getPosition(), unit.getPosition());			
 				dir = buildUtil.normalize(dir);
@@ -168,5 +210,25 @@ public class FangSM {
 	            u.gather(closestMineral, false);
 	        }
 	    }
+	}
+	private void mineGas(Unit u, Game game, FangAi fc){
+		ArrayList<Unit> cc = fc.getUnitList(unitEnum.Type.CC.toString());
+		ArrayList<Unit> refineries = fc.getUnitList(unitEnum.Type.REFINERY.toString());
+		System.out.println("drawing gas" + refineries.size());
+	//	System.out.println("gathering gas..." + mainBase.gassers.size());
+		if (refineries.size() > 0){
+		    if (u.isIdle()) {
+				game.drawLineMap(refineries.get(0).getPosition(), cc.get(0).getPosition(), Color.Cyan);
+				for (Unit ref : refineries){
+					if (ref.getType().isResourceContainer()){
+						u.gather(ref);
+					}
+				}
+		  }
+		}
+		//buildUtil.drawLine(game, u.getPosition(), cc.get(0).getPosition());
+		//System.out.println(cc.size());
+		
+
 	}
 }

@@ -46,6 +46,7 @@ public class FangAi {
 	}
 	public int numUnitType( UnitType uType ){
 		int counter = 0;
+		
 		for (Unit u : player.getUnits())
 		{
 			if  (u.getType() == uType){
