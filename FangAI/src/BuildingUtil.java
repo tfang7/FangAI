@@ -32,8 +32,17 @@ public class BuildingUtil {
 	}
 	public Position normalize(Position a){
 	//	System.out.println("The normal is " + Math.sqrt((Math.pow(a.getX(), 2)+ Math.pow(a.getY(), 2))));
-		float magnitude =  (float)Math.sqrt((Math.pow(a.getX(), 2)+ Math.pow(a.getY(), 2)));
+		double magnitude =  (double)Math.sqrt((Math.pow(a.getX(), 2)+ Math.pow(a.getY(), 2)));
+		//System.out.println("Y is" + a.getY() / magnitude);
 		return new Position((int) Math.round(a.getX()/magnitude),(int) Math.round(a.getY()/magnitude));
+	}
+	public double getY(Position a){
+		double magnitude =  (double)Math.sqrt((Math.pow(a.getX(), 2)+ Math.pow(a.getY(), 2)));
+		return a.getY() / magnitude;
+	}
+	public double getX(Position a){
+		double magnitude =  (double)Math.sqrt((Math.pow(a.getX(), 2)+ Math.pow(a.getY(), 2)));
+		return a.getX() / magnitude;
 	}
 	public ArrayList<Unit> getBaseResources(Position p, Game g){
 		ArrayList<Unit> resourcesInRadius = new ArrayList<Unit>();
@@ -49,14 +58,23 @@ public class BuildingUtil {
 	public Position getCenter(ArrayList<Unit> units){
 		int avgX = 0;
 		int avgY = 0;
+		int constructing = 0;
 		for (Unit u : units){
-			int x = u.getPosition().getX();
-			int y = u.getPosition().getY();
-			avgX += x;
-			avgY += y;
+			if (!u.isCompleted()){
+				constructing++;
+				continue;
+				
+			}
+			else{
+				int x = u.getPosition().getX();
+				int y = u.getPosition().getY();
+				avgX += x;
+				avgY += y;
+			}
+
 		}
-		avgX = avgX / units.size();
-		avgY = avgY / units.size();
+		avgX = avgX / (units.size() - constructing);
+		avgY = avgY / (units.size() - constructing);
 		return new Position(avgX, avgY);
 	}
 

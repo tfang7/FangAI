@@ -3,16 +3,23 @@ import java.util.HashMap;
 
 import bwapi.*;
 public class Formation {
-	public HashMap<Integer, Position> slots;
-	public State current;
+	public HashMap<Integer, Position> slots = new HashMap<Integer, Position>();
 	public boolean check;
-	
-	public Formation() {
+	public ArrayList<Unit> members;
+	public State currentState;
+	public PositionOrUnit target;
+	public Position center;
+	public int memberSize;
+	public Formation(int size) {
 		check = false;
+		memberSize = size;
+		currentState = State.IDLE;
+		members = new ArrayList<Unit>();
 		// TODO Auto-generated constructor stub
 	}
 	
 	public enum State {
+		MOVING,
 		FLEEING,
 		ATTACKING,
 		IDLE,
@@ -27,6 +34,9 @@ public class Formation {
 				break;
 			
 		}
+	}
+	public void add(Unit u){
+		if (!members.contains(u))members.add(u);
 	}
 	public void generateFormationSlots(ArrayList<Unit> allUnits){
 		

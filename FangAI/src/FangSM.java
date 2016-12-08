@@ -151,6 +151,7 @@ public class FangSM {
 				unit.issueCommand(UnitCommand.attack(unit, attackPos));;
 			}
 			else if (cd > 5 && unit.isAttacking()){
+				if (unit.canUseTech(TechType.Stim_Packs) && unit.getHitPoints() >= 30) unit.useTech(TechType.Stim_Packs);
 				unit.stop();
 				Position dir = buildUtil.getDir(target.getPosition(), unit.getPosition());			
 				dir = buildUtil.normalize(dir);
@@ -217,13 +218,9 @@ public class FangSM {
 		System.out.println("drawing gas" + refineries.size());
 	//	System.out.println("gathering gas..." + mainBase.gassers.size());
 		if (refineries.size() > 0){
-		    if (u.isIdle()) {
-				game.drawLineMap(refineries.get(0).getPosition(), cc.get(0).getPosition(), Color.Cyan);
-				for (Unit ref : refineries){
-					if (ref.getType().isResourceContainer()){
-						u.gather(ref);
-					}
-				}
+		    if (!u.isGatheringGas()) {
+				//game.drawLineMap(refineries.get(0).getPosition(), cc.get(0).getPosition(), Color.Cyan);
+				System.out.println(refineries.get(0));
 		  }
 		}
 		//buildUtil.drawLine(game, u.getPosition(), cc.get(0).getPosition());
