@@ -6,9 +6,10 @@ public class FangAi {
 	private Player player;
 	HashMap<String, ArrayList<Unit>> units;
 	ArrayList<UnitType> BuildOrder;
-	
-	public FangAi(){
+	protected unitEnum uType;
+	public FangAi(unitEnum enumerator){
 		units = new HashMap<String, ArrayList<Unit>>();
+		uType = enumerator;
 	}
 	
 	
@@ -41,6 +42,9 @@ public class FangAi {
 		}
 		else return 0;
 	}
+    public ArrayList<Unit> getUnits(UnitType unit){
+    	return getUnitList(uType.eval(unit).toString());
+    }
 	public ArrayList<Unit> getUnitList(String type){
 		return units.get(type);
 	}

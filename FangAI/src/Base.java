@@ -9,10 +9,12 @@ public class Base {
 	public Unit scout;
 	public ArrayList<Unit> builders;
 	public ArrayList<Unit> gassers;
+	public ArrayList<Unit> workers;
 	private BuildingUtil builder = new BuildingUtil();
 	public int maxBarracks = 2;
 	public int maxWorkers = 27;
 	public int gasWorkers = 3;
+	
 	public Unit refinery;
 	public boolean refineryBuilt;
 	public boolean ebayBuilt;
@@ -21,6 +23,7 @@ public class Base {
 	public Position tech;
 	public Position supplies;
 	public Position barracks;
+	public TilePosition tilePos;
 	int xOffset = 25, yOffset = 25;
 	
 	public Base(Unit u, Game g)
@@ -28,11 +31,13 @@ public class Base {
 		if (u != null && u.getType() == UnitType.Terran_Command_Center)
 		{
 			CC = u;
+			tilePos = u.getTilePosition();
 		}
 		ebayBuilt = false;
 		refineryBuilt = false;
 		gassers = new ArrayList<Unit>();
 		builders = new ArrayList<Unit>();
+		workers = new ArrayList<Unit>();
 		setLayout(g);
 	}
 	
@@ -70,7 +75,6 @@ public class Base {
 	public void setLayout(Game game)
 	{
 		resourceCenter = builder.getCenter(builder.getBaseResources(CC.getPosition(), game));
-		Position notNormalized = builder.getDir(CC.getPosition(), resourceCenter);
 		dir = builder.normalize(builder.getDir(CC.getPosition(), resourceCenter));
 		System.out.println("The direction is" + dir.getX() + " " +  dir.getY());
 		supplies = new Position(CC.getPosition().getX()  + ((100 + UnitType.Terran_Command_Center.width())* dir.getX()), CC.getPosition().getY() + (300 * dir.getY()));

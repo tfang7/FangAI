@@ -77,7 +77,6 @@ public class BuildingUtil {
 		avgY = avgY / (units.size() - constructing);
 		return new Position(avgX, avgY);
 	}
-
 	public Position getCenter(List<Unit> units){
 		int avgX = 0;
 		int avgY = 0;
@@ -94,7 +93,7 @@ public class BuildingUtil {
 	public TilePosition getBuildTile(Unit builder, UnitType buildingType, TilePosition aroundTile, Game game) {
 		TilePosition ret = null;
 		int maxDist = 3;
-		int stopDist = 40;
+		int stopDist = 150;
 		
 		// Refinery, Assimilator, Extractor
 		if (buildingType.isRefinery()) {
