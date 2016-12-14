@@ -69,7 +69,8 @@ public class FangBot extends DefaultBWListener {
     	}
     	else if (unit.getType() == UnitType.Terran_Command_Center){
     		expansionTiles.add(unit.getTilePosition());
-    		System.out.println("Expansion Tiles: " + expansionTiles.size());
+    		//allBases.add(new Base(unit, game));
+    		buildManager.addBase(unit, game);
     		if (checkResources(UnitType.Terran_Comsat_Station)){
     			unit.buildAddon(UnitType.Terran_Comsat_Station);
     		}
@@ -313,10 +314,7 @@ public class FangBot extends DefaultBWListener {
 				}
 			//	buildStarport(myUnit);
 				buildFactory(myUnit);
-			    if (!self.hasUnitTypeRequirement(UnitType.Terran_Academy)
-			    		&& self.hasUnitTypeRequirement(UnitType.Terran_Refinery)
-				    	&& checkResources(UnitType.Terran_Academy) 
-				    	&& self.hasUnitTypeRequirement(UnitType.Terran_Barracks)
+			    if (buildManager.build(myUnit, UnitType.Terran_Academy, game, checkProductionRate())
 				    	&& !checkConstructing(UnitType.Terran_Academy))
 				    {
 				    	TilePosition toBuild = builder.getBuildTile(myUnit, UnitType.Terran_Academy, mainBase.supplies.toTilePosition(), game);
@@ -325,7 +323,7 @@ public class FangBot extends DefaultBWListener {
 			    
 //        		System.out.println("there are " + mainBase.builders.size() + "workers");
 			    if (	   !checkConstructing(UnitType.Terran_Barracks)
-			    		&& buildManager.buildBarracks(myUnit, game, checkProductionRate())
+			    		&& buildManager.build(myUnit, UnitType.Terran_Barracks, game, checkProductionRate())
 			    		&& numUnits(UnitType.Terran_Barracks) < 2 * (expansionTiles.size())  )
 			    {
 					TilePosition toBuild = builder.getBuildTile(myUnit, UnitType.Terran_Barracks, expansionTiles.get(expansionTiles.size() - 1), game);
@@ -333,8 +331,7 @@ public class FangBot extends DefaultBWListener {
 				}
 			  //  buildEngineeringBay(myUnit);
 			    if (numUnits(UnitType.Terran_Refinery) <= 0 
-			    		&& checkResources(UnitType.Terran_Refinery) 
-			    		&& self.hasUnitTypeRequirement(UnitType.Terran_Barracks)
+			    		&& buildManager.build(myUnit, UnitType.Terran_Refinery, game, checkProductionRate())
 			    		&& !checkConstructing(UnitType.Terran_Refinery))
 			    {
 			    	List<Unit> geysers = game.getGeysers();
@@ -350,7 +347,10 @@ public class FangBot extends DefaultBWListener {
 			    	//	game.drawLineMap(g.getPosition(), mainBase.CC.getPosition(), Color.Red);
 			    	}
 			    }
-			    if (buildPylon)
+			    if (supplyDiff <= (checkProductionRate() + 5) && 
+			    		buildManager.build(myUnit,UnitType.Terran_Supply_Depot, game, 
+			    		checkProductionRate()) 
+			    		&& !checkConstructing(UnitType.Terran_Supply_Depot))
 			    {
 					TilePosition toBuild = builder.getBuildTile(myUnit, UnitType.Terran_Supply_Depot, mainBase.supplies.toTilePosition(), game);
 					fangState.Produce(myUnit, UnitType.Terran_Supply_Depot, toBuild);

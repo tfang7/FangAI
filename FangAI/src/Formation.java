@@ -96,7 +96,8 @@ public class Formation {
 					 myUnit.issueCommand(UnitCommand.attack(myUnit, attackE));
 				}
 				else if (myUnit.getType() == UnitType.Terran_Siege_Tank_Siege_Mode || myUnit.getType() == UnitType.Terran_Siege_Tank_Tank_Mode){
-					 if (!attackEnemy.isFlying() && enemyDist < 500){
+				//	System.out.println("Enemy Dist: " + enemyDist);
+					 if (!attackEnemy.isFlying() && enemyDist < 380){
 						 if (myUnit.canUseTech(TechType.Tank_Siege_Mode) )
 						 {
 							 myUnit.useTech(TechType.Tank_Siege_Mode);
@@ -104,17 +105,17 @@ public class Formation {
 
 						// fangState.Action(myUnit, game, FangSM.Role.RANGED, attackE.getUnit());
 					 }
+
 					 else{
-						 fangState.Action(myUnit, game, FangSM.Role.RANGED, attackE.getUnit());//form.currentState = Formation.State.MOVING;
+						  if (myUnit.isSieged()){
+								myUnit.unsiege(); 
+							 }
+						 fangState.Action(myUnit, game, FangSM.Role.RANGED, attackE.getUnit());// form.currentState = Formation.State.MOVING;
 					 }
 				}
 				else if (game.isVisible(attackEnemy.getTilePosition())){
 					  if (enemyDist > 700) {
 						  form.currentState = Formation.State.MOVING;
-						 /* if (myUnit.isSieged()){
-								 myUnit.unsiege();
-							 }
-						 fangState.Action(myUnit, game, FangSM.Role.RANGED, attackE.getUnit());*/
 					 }
 					 
 					 else {

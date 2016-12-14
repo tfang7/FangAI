@@ -33,6 +33,9 @@ public class Base {
 			CC = u;
 			tilePos = u.getTilePosition();
 		}
+		else{
+			System.out.println("Base created: Not CC");
+		}
 		ebayBuilt = false;
 		refineryBuilt = false;
 		gassers = new ArrayList<Unit>();
