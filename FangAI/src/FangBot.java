@@ -299,13 +299,6 @@ public class FangBot extends DefaultBWListener {
     		}
     		else if (academy.canUpgrade(UpgradeType.U_238_Shells)) {
     			academy.upgrade(UpgradeType.U_238_Shells);
-    		/*	List<TechType> techList = academy.getType().researchesWhat();
-    			UnitType.Terran_Marine.upgrades();
-    			for (TechType t : techList){
-    				if (!self.hasResearched(t)){
-    					academy.research(t);
-    				}
-    			}*/
     		}
     	}
     }
