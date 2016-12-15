@@ -6,7 +6,7 @@ public class unitEnum {
 		SCV, MARINE, MEDIC, FIREBAT,
 		CC, SUPPLY, BARRACKS, ACADEMY,
 		//T2
-		VULTURE, GOLIATH, TANK,
+		VULTURE, GOLIATH, TANK_TANK, SIEGE_TANK,
 		FACTORY, ARMORY, ENGBAY,
 		//T3
 		DROPSHIP, WRAITH, BATTLECRUISER,
@@ -53,7 +53,12 @@ public class unitEnum {
 		else if (uType == UnitType.Terran_Medic){
 			return Type.MEDIC;
 		}
-		
+		else if (uType == UnitType.Terran_Firebat){
+			return Type.FIREBAT;
+		}
+		else if (uType == UnitType.Terran_Siege_Tank_Tank_Mode){
+			return Type.TANK_TANK;
+		}
 		return null;
 
 	}

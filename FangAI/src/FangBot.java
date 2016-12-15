@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
+import javax.management.MBeanAttributeInfo;
+
 import bwapi.Color;
 import bwapi.DefaultBWListener;
 import bwapi.Game;
@@ -42,7 +44,7 @@ public class FangBot extends DefaultBWListener {
     private int formationIndex = 0;
     private int buildIndex = 0;
     private Formation fangForm = new Formation(16);
- 
+    private boolean DEBUG_ENABLED;
     private ArrayList<TilePosition> expansionTiles = new ArrayList<TilePosition>();
     public void run() {
         mirror.getModule().setEventListener(this);
@@ -59,12 +61,9 @@ public class FangBot extends DefaultBWListener {
     @Override
     public void onUnitCreate(Unit unit) {
     	String ftype = uType.eval(unit.getType()).toString();
-    	fang.addUnit(ftype, unit);
-    	if (unit.getType() == UnitType.Terran_Marine || unit.getType() == UnitType.Terran_Medic ){
-    		//fangForm.members.add(unit);
 
-    	}
-    	else if (unit.getType() == UnitType.Terran_Refinery){
+    	fang.addUnit(ftype, unit);
+    	if (unit.getType() == UnitType.Terran_Refinery){
     		mainBase.refinery = unit;
     	}
     	else if (unit.getType() == UnitType.Terran_Command_Center){
@@ -88,6 +87,16 @@ public class FangBot extends DefaultBWListener {
     			mainBase.addGasWorker(unit);
     		//	System.out.println("adding gas worker" + unit.getID() + " " + mainBase.gassers.size());
     		}
+    		else
+    		{
+    			buildManager.getClosestCC(allBases, unit).addWorker(unit);
+    			//System.out.println("Nearest base found: " + near.CC.getID());
+    			//near.workers.add(unit);
+    			//System.out.println(near.workers.size());
+    			//game.drawLineMap(near.CC.getPosition(), unit.getPosition(), Color.Red);
+    			
+    		}
+
     	//	fang.addUnit(ftype, unit);
     		//fang.addWorker(unit);
     	}
@@ -100,19 +109,20 @@ public class FangBot extends DefaultBWListener {
         game = mirror.getGame();
         game.setLocalSpeed(5);
         self = game.self();
+        DEBUG_ENABLED = true;
        // game.sendText("show me the money");
         //Use BWTA to analyze map
         //This may take a few minutes if the map is processed first time!
       //  System.out.println("Analyzing map...");
         BWTA.readMap();
         BWTA.analyze();
-
+        game.sendText("gl hf, my elo is higher than yours - FangBot");
        //System.out.println("Map data ready");
         for (Unit u : self.getUnits()){
         	if (u.getType() == UnitType.Terran_Command_Center){
-        		mainBase = new Base(u, game);
+        		//mainBase = new Base(u, game);
         		Base b = new Base(u, game);
-        		b.tilePos = u.getTilePosition();
+        	//	b.tilePos = u.getTilePosition();
         		mainBase = b;
         		allBases.add(b);
         	}
@@ -136,28 +146,33 @@ public class FangBot extends DefaultBWListener {
         
         checkEnemyMemory();
         //iterate through my units
-        int supplyDiff = game.self().supplyTotal() - game.self().supplyUsed() - checkProductionRate();
         for (Unit myUnit : self.getUnits()) 
         {
         	units.append(myUnit.getType()).append(" ").append(myUnit.getTilePosition()).append("\n");
     		UnitType cType = myUnit.getType();
         	//getNextExpansion(mainBase.CC);
-            SCV(myUnit, cType, supplyDiff);
-            
-    		if (myUnit.getType() == UnitType.Terran_Command_Center )
+            SCV(myUnit, cType);
+            if (myUnit.getType() == UnitType.Terran_Supply_Depot){
+           //	game.drawTextMap(myUnit.getPosition(),"Supply val:" + supplyDiff);
+            }
+            else if (myUnit.getType() == UnitType.Terran_Command_Center )
     		{
     			int numSCV = numUnits(UnitType.Terran_SCV);
+    			Base b = buildManager.getBase(myUnit);
+    			if (DEBUG_ENABLED){
+    				game.drawTextMap(myUnit.getPosition(), "uid: " + myUnit.getID());
+    				Position workerTextPosition = new Position(myUnit.getPosition().getX(), myUnit.getPosition().getY() + 10);
+    				game.drawTextMap(workerTextPosition, "scvs: " + b.workers.size());
+    			}
     		//	System.out.println("expansions : " + expansionTiles.size() * 27);
     			 //game.drawLineMap(getNextExpansion().getPosition(), mainBase.CC.getPosition(), Color.Blue);
     			//if (self.hasUnitTypeRequirement(UnitType.Terran_Comsat_Station)&& checkResources(UnitType.Terran_Comsat_Station))myUnit.build(UnitType.Terran_Comsat_Station);
-    			if (numSCV < expansionTiles.size() * 27 && numSCV < 60){
-    				if (myUnit.getID() == mainBase.CC.getID()){
-    					if (mainBase.workers.size() < 27){
+    			if (myUnit.isIdle() && numSCV < expansionTiles.size() * 27 && numSCV < 60 && b != null){
+    				if (myUnit.getID() == b.CC.getID()){
+    					if (b.workers.size() < 27){    		
+    						
     						fangState.Produce(myUnit, UnitType.Terran_SCV);
     					}
-    				}
-    				else{
-    					fangState.Produce(myUnit, UnitType.Terran_SCV);
     				}
     			}
     			
@@ -167,7 +182,6 @@ public class FangBot extends DefaultBWListener {
     		else if (myUnit.getType() == UnitType.Terran_Machine_Shop){
     			if (!self.hasResearched(TechType.Tank_Siege_Mode) && checkResources(TechType.Tank_Siege_Mode)) 
     				myUnit.research(TechType.Tank_Siege_Mode);
-    			
     		}
     		else if (myUnit.getType() == UnitType.Terran_Starport){
     			/*if (myUnit.canBuildAddon() && checkResources(UnitType.Terran_Control_Tower)){
@@ -182,44 +196,49 @@ public class FangBot extends DefaultBWListener {
     		}
     		else if (myUnit.getType() == UnitType.Terran_Barracks && !myUnit.isTraining())
     		{
-    			if (self.hasUnitTypeRequirement(UnitType.Terran_Academy)){
+    			if (self.hasUnitTypeRequirement(UnitType.Terran_Academy))
+    			{
     				int m = numUnits(UnitType.Terran_Marine);
     				int medic = numUnits(UnitType.Terran_Medic);
-    				if ( m / 3 >= medic ) fangState.Produce(myUnit, UnitType.Terran_Medic);
-    				else {
+    				int f = numUnits(UnitType.Terran_Firebat);
+    			//	System.out.println("Firebats:" + fang.getUnits(UnitType.Terran_Firebat).size());
+    				
+    				if (m / 3 >= f){
+    					fangState.Produce(myUnit, UnitType.Terran_Firebat);
+    				}
+    				else if ( m / 5 >= medic ) fangState.Produce(myUnit, UnitType.Terran_Medic);
+
+    				else 
+    				{
     					fangState.Produce(myUnit, UnitType.Terran_Marine);
     				}
     			}
-    			else fangState.Produce(myUnit, UnitType.Terran_Marine);
-    			
-    				
-    			
-    			/*else{
-    				fangState.Produce(myUnit, UnitType.Terran_Marine);
-    			}*/
-    			
+    			else fangState.Produce(myUnit, UnitType.Terran_Marine);	
+    			}	
+    		if (   myUnit.isCompleted() && 
+				(
+				 myUnit.getType() == UnitType.Terran_Medic 
+				|| myUnit.getType() == UnitType.Terran_Firebat
+				|| myUnit.getType() == UnitType.Terran_Marine
+				|| myUnit.getType() == UnitType.Terran_Siege_Tank_Tank_Mode
+				|| myUnit.getType() == UnitType.Terran_Siege_Tank_Siege_Mode
+				|| myUnit.getType() == UnitType.Terran_Vulture
+				)
+			)
+			{
+				fangForm.add(myUnit);
+				fangForm.FSM(myUnit, fangForm, Formation.State.MOVING, fangState, fang, game, enemyBuildingMemory);
+			}
+    		else if (myUnit.getType().isBuilding() && !myUnit.isCompleted() && !myUnit.isBeingConstructed()){
+    			myUnit.cancelConstruction();
     		}
-    				if (   myUnit.isCompleted() && (
-    				 myUnit.getType() == UnitType.Terran_Medic 
-    				|| myUnit.getType() == UnitType.Terran_Marine
-    				|| myUnit.getType() == UnitType.Terran_Siege_Tank_Tank_Mode
-    				|| myUnit.getType() == UnitType.Terran_Siege_Tank_Siege_Mode
-    				|| myUnit.getType() == UnitType.Terran_Vulture
-    				
-    				)
-    			)
-    		{
-    			
-
-        				fangForm.add(myUnit);
-        				fangForm.FSM(myUnit, fangForm, Formation.State.MOVING, fangState, fang, game, enemyBuildingMemory);
-    		}
-    		
+		
         }
 
         //draw my units on screen
         mainBase.drawLayout(game);
         game.drawTextScreen(10, 25, fangForm.currentState.toString());
+       // game.drawTextScreen(10, 40, game.getAPM() + " ");
        // game.drawTextScreen(10, 40, "formation: current: " +  formations.get(0).members.size() + "max" + fangForm.memberSize);
     }
 
@@ -282,26 +301,23 @@ public class FangBot extends DefaultBWListener {
     		}
     	}
     }
-    public void SCV(Unit myUnit, UnitType cType, Integer supplyDiff)
+    public void SCV(Unit myUnit, UnitType cType)
     {
-    	
+        int supplyDiff = game.self().supplyTotal() - game.self().supplyUsed() - checkProductionRate();
+
     	if (cType == UnitType.Terran_SCV){
+    		
     		if (mainBase.scout == null){
     			if (!contains(myUnit, mainBase.builders)){
     				mainBase.scout = myUnit;
     			}
     		}
-    		if (mainBase.scout == myUnit) scoutEnemy(myUnit);
-    		boolean buildPylon = //supplyDiff <= (checkProductionRate() + 5) 
-    			buildManager.buildSupplyDepot(myUnit, game, checkProductionRate() )
-    		&& !checkConstructing(UnitType.Terran_Supply_Depot);
-    		//if (mainBase.scout == myUnit)scoutEnemy(myUnit);
-
+    		
     	    if (contains(myUnit, mainBase.builders))
 			{					
 				if (expansionTiles.size() > 1 && !checkConstructing(UnitType.Terran_Starport) && self.hasUnitTypeRequirement(UnitType.Terran_Factory) 
 						&& !self.hasUnitTypeRequirement(UnitType.Terran_Starport)) {
-			    	TilePosition toBuild = builder.getBuildTile(myUnit, UnitType.Terran_Starport, expansionTiles.get(expansionTiles.size() - 1), game);
+			   // 	TilePosition toBuild = builder.getBuildTile(myUnit, UnitType.Terran_Starport, expansionTiles.get(expansionTiles.size() - 1), game);
 			    	//fangState.Produce(myUnit, UnitType.Terran_Starport, toBuild);
 					//buildStarport(myUnit);
 				}
@@ -324,7 +340,7 @@ public class FangBot extends DefaultBWListener {
 //        		System.out.println("there are " + mainBase.builders.size() + "workers");
 			    if (	   !checkConstructing(UnitType.Terran_Barracks)
 			    		&& buildManager.build(myUnit, UnitType.Terran_Barracks, game, checkProductionRate())
-			    		&& numUnits(UnitType.Terran_Barracks) < 2 * (expansionTiles.size())  )
+			    		&& numUnits(UnitType.Terran_Barracks) < (2 * expansionTiles.size()) + 1)
 			    {
 					TilePosition toBuild = builder.getBuildTile(myUnit, UnitType.Terran_Barracks, expansionTiles.get(expansionTiles.size() - 1), game);
 					fangState.Produce(myUnit, UnitType.Terran_Barracks, toBuild);
@@ -371,6 +387,7 @@ public class FangBot extends DefaultBWListener {
 					}
 				}
 		    }
+			else if (mainBase.scout.getID() == myUnit.getID()) scoutEnemy(myUnit);
 			else 
 			{
 				fangState.Action(myUnit, game, FangSM.Role.HARVESTER);
@@ -385,7 +402,8 @@ public class FangBot extends DefaultBWListener {
     }
     public void scoutEnemy(Unit u)
     {
-		if (u.getID() == mainBase.scout.getID() && enemyBuildingMemory.size() == 0 && 
+		if (u.getID() == mainBase.scout.getID() 
+				&& enemyBuildingMemory.size() == 0 && 
 				self.hasUnitTypeRequirement(UnitType.Terran_Supply_Depot)){
 			
 			if (target == null)
@@ -394,12 +412,12 @@ public class FangBot extends DefaultBWListener {
 			}
 
 			
-			if (target != null && u.getDistance(target.getPosition()) < 10) 
+			else if (target != null && u.getDistance(target.getPosition()) < 10) 
 			{
 				checkedBases.add(target);
 				target = null;
 			}
-			else{
+			else if (u.isGatheringMinerals() || u.isIdle()){
 				u.move(target.getPosition());
 			}
 			
@@ -407,8 +425,8 @@ public class FangBot extends DefaultBWListener {
 		}
 		else if (u.getID() == mainBase.scout.getID() && self.minerals() > 400 && expansionTiles.size() < 3)
     	{
-    		TilePosition next = getNextExpansion(self).getTilePosition();
-    		double dist = next.getDistance(u.getTilePosition());
+			TilePosition next = getNextExpansion(self).getTilePosition();
+    	//	double dist = next.getDistance(u.getTilePosition());
     		game.drawLineMap(next.toPosition(), u.getPosition(), Color.Orange);
     		if (game.isVisible(next)){
     			if (!checkConstructing(UnitType.Terran_Command_Center)) u.build(UnitType.Terran_Command_Center, next);
@@ -416,6 +434,7 @@ public class FangBot extends DefaultBWListener {
     		else{
     			u.move(next.toPosition());
     		}
+    		
     		
     		//	System.out.println("Dist from expansion: " + expansionTiles.size());
     		
@@ -558,6 +577,7 @@ public class FangBot extends DefaultBWListener {
     	}
     	return closest;
     }
+
     public Unit getClosestEnemy(Unit u, List<Unit> enemies)
     {
     	Unit closest = enemies.get(0);

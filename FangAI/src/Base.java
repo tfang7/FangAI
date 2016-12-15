@@ -43,7 +43,12 @@ public class Base {
 		workers = new ArrayList<Unit>();
 		setLayout(g);
 	}
-	
+	public void addWorker(Unit u)
+	{
+		if (!workers.contains(u) && !builders.contains(u) && !gassers.contains(u) && scout != u){
+			workers.add(u);
+		}
+	}
 	public void addBuilder(Unit u)
 	{
 		if (!builders.contains(u) && !gassers.contains(u) && scout != u){

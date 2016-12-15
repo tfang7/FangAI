@@ -23,6 +23,7 @@ public class BuildingManager {
 		}
 		if (!copy){
 			Base b = new Base(unit, game);
+			b.tilePos = unit.getTilePosition();
 			bases.add(b);
 			
 		}
@@ -35,6 +36,21 @@ public class BuildingManager {
 		}
 		return null;
 	}
+    public Base getClosestCC(ArrayList<Base> bases, Unit u){
+    	int min = u.getDistance(bases.get(0).tilePos.toPosition());
+    	Base closest = bases.get(0);
+    	for (Base base : bases){
+    		if (base != closest){
+    			int dist = u.getDistance(base.tilePos.toPosition());
+    			if (  dist < min ){
+    				closest = base;
+    				
+    				min = dist;
+    			}
+    		}
+    	}
+    	return bases.get(bases.indexOf(closest));
+    }
 	public boolean buildSupplyDepot(Unit u, Game game, int productionRate){
 		Player self = game.self();
 	//	int supplyDiff = self.supplyTotal() - self.supplyUsed();
