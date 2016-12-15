@@ -149,11 +149,11 @@ public class FangBot extends DefaultBWListener {
         for (Unit myUnit : self.getUnits()) 
         {
         	units.append(myUnit.getType()).append(" ").append(myUnit.getTilePosition()).append("\n");
-    		UnitType cType = myUnit.getType();
+    	//	UnitType cType = myUnit.getType();
         	//getNextExpansion(mainBase.CC);
            
             if (myUnit.getType() == UnitType.Terran_SCV){
-            	 SCV(myUnit, cType);
+            	 SCV(myUnit);
            //	game.drawTextMap(myUnit.getPosition(),"Supply val:" + supplyDiff);
             }
             else if (myUnit.getType() == UnitType.Terran_Command_Center )
@@ -196,6 +196,7 @@ public class FangBot extends DefaultBWListener {
     		}
     		else if (myUnit.getType() == UnitType.Terran_Barracks && !myUnit.isTraining())
     		{
+    			game.drawCircleMap(myUnit.getPosition(), (int)myUnit.getType().width(), Color.Cyan);
     			if (self.hasUnitTypeRequirement(UnitType.Terran_Academy))
     			{
     				int m = numUnits(UnitType.Terran_Marine);
@@ -308,11 +309,11 @@ public class FangBot extends DefaultBWListener {
     		}
     	}
     }
-    public void SCV(Unit myUnit, UnitType cType)
+    public void SCV(Unit myUnit)
     {
         int supplyDiff = game.self().supplyTotal() - game.self().supplyUsed() - checkProductionRate();
 
-    	if (cType == UnitType.Terran_SCV){
+    //	if (cType == UnitType.Terran_SCV){
     		
     		if (mainBase.scout == null){
     			if (!contains(myUnit, mainBase.builders)){
@@ -399,7 +400,7 @@ public class FangBot extends DefaultBWListener {
 			{
 				fangState.Action(myUnit, game, FangSM.Role.HARVESTER);
 			}
-    	}
+    //	}
     }
     public boolean checkResources(UnitType type){
     	return (self.minerals() >= type.mineralPrice() && self.gas() >= type.gasPrice());

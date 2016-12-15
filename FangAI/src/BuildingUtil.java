@@ -93,7 +93,7 @@ public class BuildingUtil {
 	public TilePosition getBuildTile(Unit builder, UnitType buildingType, TilePosition aroundTile, Game game) {
 		TilePosition ret = null;
 		int maxDist = 3;
-		int stopDist = 150;
+		int stopDist = 100;
 		
 		// Refinery, Assimilator, Extractor
 		if (buildingType.isRefinery()) {
