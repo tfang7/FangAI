@@ -61,34 +61,41 @@ public class Formation {
 		form.currentState = state;
 		int numEnemies = game.enemy().getUnits().size();
 		Unit attackEnemy = getClosestEnemy(myUnit, game.enemy().getUnits());
-		 int numMarines = fangMind.getUnits(UnitType.Terran_Marine).size();
+		int numMarines = fangMind.getUnits(UnitType.Terran_Marine).size();
+		int separation = 1200;
 		
 		Position move = builder.getCenter(form.members);
 		int dist = myUnit.getDistance(move);
 		//game.drawTextMap(myUnit.getPosition(), "+:" + dist);
 		Position target = findEnemyBuilding(numEnemies, enemyBuildings);
 		//Chokepoint chokePointPos = BWTA.getNearestChokepoint(myUnit.getTilePosition());
-		
+		game.drawLineMap(move, myUnit.getPosition(), Color.Blue);
 		int enemyDist = myUnit.getDistance(attackEnemy);
 	//	if (enemyDist > myUnit.getDistance(target) && numMarines < 20){
 		//	target = chokePointPos.getPoint();
 	//		game.drawCircleMap(chokePointPos.getCenter(),(int)chokePointPos.getWidth(), Color.Cyan);
 		//	form.currentState = Formation.State.ATTACKING;
 	//	}
-		if (numMarines > 20 || (attackEnemy != null && enemyDist < 1000)){
+		if ( (numMarines > 20 && dist <= separation/2) || (attackEnemy != null && enemyDist < separation/2)){
 			form.currentState = Formation.State.ATTACKING;
 		}
-		else if (form.members.contains(myUnit) && (enemyDist >= 1000 || dist > 400)){
+		else if (form.members.contains(myUnit) && (enemyDist >= separation/2)){
+			form.currentState = Formation.State.MOVING;
+		}
+		else {
 			form.currentState = Formation.State.MOVING;
 		}
 		game.drawTextMap(myUnit.getPosition(), form.currentState.toString());
 		switch(form.currentState){
     		case MOVING:
-    			if (myUnit.isSieged()) myUnit.unsiege();
-				 myUnit.issueCommand(UnitCommand.attack(myUnit, new PositionOrUnit(move)));
-
-				 if (attackEnemy.getDistance(myUnit) < 1000 || numMarines > 20){
+    			myUnit.issueCommand(UnitCommand.attack(myUnit, new PositionOrUnit(move)));
+    			 if (myUnit.isSieged()) myUnit.unsiege();
+    			 //attackEnemy.getDistance(myUnit) < separation/2 || 
+				 if (numMarines > 20){
 					 form.currentState = Formation.State.ATTACKING;
+				 }
+				 else {
+					 myUnit.issueCommand(UnitCommand.attack(myUnit, new PositionOrUnit(move)));
 				 }
     			break;
 			
@@ -100,10 +107,8 @@ public class Formation {
 					if (c.getPoint())
 				}*/
 			//	System.out.println("Enemy distance: " + );
-				if (myUnit.getType() == UnitType.Terran_Medic && dist < 400){
-					 myUnit.issueCommand(UnitCommand.attack(myUnit, attackE));
-				}
-				else if (myUnit.getType() == UnitType.Terran_Siege_Tank_Siege_Mode || 
+
+				if (myUnit.getType() == UnitType.Terran_Siege_Tank_Siege_Mode || 
 						 myUnit.getType() == UnitType.Terran_Siege_Tank_Tank_Mode){
 					 if (!attackEnemy.isFlying() 
 						 && (enemyDist < WeaponType.Arclite_Shock_Cannon.maxRange()) 
@@ -112,14 +117,15 @@ public class Formation {
 						 myUnit.useTech(TechType.Tank_Siege_Mode);
 					 }
 					 else{
-						  if (myUnit.isSieged()){
+						  if (myUnit.isSieged())
+						  {
 								myUnit.unsiege(); 
 							 }
 						 fangState.Action(myUnit, game, FangSM.Role.RANGED, attackE.getUnit());// form.currentState = Formation.State.MOVING;
 					 }
 				}
 				else if (game.isVisible(attackEnemy.getTilePosition())){
-					  if (enemyDist > 1000) {
+					  if (enemyDist > separation/2) {
 						  form.currentState = Formation.State.MOVING;
 					 }
 					 else {

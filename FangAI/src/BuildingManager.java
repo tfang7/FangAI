@@ -14,27 +14,32 @@ public class BuildingManager {
 		buildUtil = b;
 		bases = new ArrayList<Base>();
 	}
-	public void addBase(Unit unit, Game game){
+	public Base addBase(Unit unit, Game game){
 		boolean copy = false;
+		Base b = null;
 		for (Base base : bases){
 			if (base.CC.getID() == unit.getID()){
 				copy = true;
 			}
 		}
 		if (!copy){
-			Base b = new Base(unit, game);
+			b = new Base(unit, game, buildUtil);
 			b.tilePos = unit.getTilePosition();
 			bases.add(b);
-			
+			return b;
 		}
+		return b;
+		
 	}
 	public Base getBase(Unit u){
+		Base res = null;
 		for (Base b : bases){
 			if (u.getID() == b.CC.getID()){
-				return b;
+			//	System.out.println("Found Base:" + b.CC.getID() + " worker size:" + b.workers.size());
+				res = b;
 			}
 		}
-		return null;
+		return res;
 	}
     public Base getClosestCC(ArrayList<Base> bases, Unit u){
     	int min = u.getDistance(bases.get(0).tilePos.toPosition());

@@ -165,7 +165,7 @@ public class FangSM {
 		}
 	}
 	private void mineClosest(Unit u, Game game){
-		ArrayList<Unit> cc = fang.getUnitList(unitEnum.Type.CC.toString());
+	//	ArrayList<Unit> cc = fang.getUnitList(unitEnum.Type.CC.toString());
 	//	buildUtil.drawLine(game, u.getPosition(), cc.get(0).getPosition());
 		//System.out.println(cc.size());
 		
@@ -188,7 +188,7 @@ public class FangSM {
 	    }
 	}
 	private void mineGas(Unit u, Game game, FangAi fc){
-		ArrayList<Unit> cc = fc.getUnitList(unitEnum.Type.CC.toString());
+		//ArrayList<Unit> cc = fc.getUnitList(unitEnum.Type.CC.toString());
 		ArrayList<Unit> refineries = fc.getUnitList(unitEnum.Type.REFINERY.toString());
 		//System.out.println("drawing gas" + refineries.size());
 	//	System.out.println("gathering gas..." + mainBase.gassers.size());
