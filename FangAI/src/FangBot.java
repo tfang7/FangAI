@@ -80,7 +80,7 @@ public class FangBot extends DefaultBWListener {
     		Base closest = buildManager.getClosestCC(allBases, unit);
     		if ( closest.workers != null){
     		//	System.out.println("CC is not null");
-    			closest.workers.add(unit);
+    			closest.addWorker(unit);
     			//System.out.println("CC units:" + buildManager.getClosestCC(allBases, unit).workers.size());
     		}
     		
@@ -168,9 +168,9 @@ public class FangBot extends DefaultBWListener {
     		//	System.out.println("expansions : " + expansionTiles.size() * 27);
     			 //game.drawLineMap(getNextExpansion().getPosition(), mainBase.CC.getPosition(), Color.Blue);
     			//if (self.hasUnitTypeRequirement(UnitType.Terran_Comsat_Station)&& checkResources(UnitType.Terran_Comsat_Station))myUnit.build(UnitType.Terran_Comsat_Station);
-    			if (myUnit.isIdle() && numSCV < expansionTiles.size() * 21 && numSCV < 60 && b != null){
+    			if (myUnit.isIdle() && numSCV < expansionTiles.size() * 24 && numSCV < 60 && b != null){
     				if (myUnit.getID() == b.CC.getID()){
-    					if (b.workers.size() < 21){
+    					if (b.workers.size() < 24){
     						fangState.Produce(myUnit, UnitType.Terran_SCV);
     					}
     				}
@@ -257,8 +257,8 @@ public class FangBot extends DefaultBWListener {
 
     public void Starport(Unit starport){
     	if (!self.hasUnitTypeRequirement(UnitType.Terran_Control_Tower) && checkResources(UnitType.Terran_Control_Tower) && starport.canBuildAddon()){
-    		TilePosition toBuild = builder.getBuildTile(starport, starport.getType(), mainBase.barracks.toTilePosition(), game);
-    		starport.build(UnitType.Terran_Control_Tower, toBuild);
+    	//	TilePosition toBuild = builder.getBuildTile(starport, starport.getType(), mainBase.barracks.toTilePosition(), game);
+    		starport.buildAddon(UnitType.Terran_Control_Tower);
     	}
     	else if (starport.canBuild(UnitType.Terran_Science_Vessel) && starport.isIdle() && numUnits(UnitType.Terran_Science_Vessel) < 1){
     		starport.train(UnitType.Terran_Science_Vessel);

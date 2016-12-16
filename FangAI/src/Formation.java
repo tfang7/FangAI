@@ -81,7 +81,7 @@ public class Formation {
 		switch(form.currentState){
     		case MOVING:
     			//myUnit.issueCommand(UnitCommand.attack(myUnit, new PositionOrUnit(move)));
-    			 if (myUnit.isSieged()) myUnit.unsiege();
+    		//	 if (myUnit.isSieged()) myUnit.unsiege();
     			 //attackEnemy.getDistance(myUnit) < separation/2 || 
 				/* if (numMarines > 20){
 					 form.currentState = Formation.State.ATTACKING;

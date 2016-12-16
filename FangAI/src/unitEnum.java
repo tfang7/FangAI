@@ -32,6 +32,9 @@ public class unitEnum {
 		else if (uType == UnitType.Terran_Starport){
 			return Type.STARPORT;
 		}
+		else if (uType == UnitType.Terran_Science_Vessel){
+			return Type.SCIENCEVESSEL;
+		}
 		else if (uType == UnitType.Terran_Science_Facility){
 			return Type.SCIENCELAB;
 		}
