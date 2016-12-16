@@ -316,11 +316,12 @@ public class FangBot extends DefaultBWListener {
     		
     	    if (contains(myUnit, mainBase.builders))
 			{					
-				if (expansionTiles.size() > 1 && !checkConstructing(UnitType.Terran_Starport) && self.hasUnitTypeRequirement(UnitType.Terran_Factory) 
-						&& !self.hasUnitTypeRequirement(UnitType.Terran_Starport)) {
-			   // 	TilePosition toBuild = builder.getBuildTile(myUnit, UnitType.Terran_Starport, expansionTiles.get(expansionTiles.size() - 1), game);
+				if (expansionTiles.size() > 1 && !checkConstructing(UnitType.Terran_Starport) && self.hasUnitTypeRequirement(UnitType.Terran_Factory) )
+				{
+					
+			    	//TilePosition toBuild = builder.getBuildTile(myUnit, UnitType.Terran_Starport, expansionTiles.get(expansionTiles.size() - 1), game);
 			    	//fangState.Produce(myUnit, UnitType.Terran_Starport, toBuild);
-					//buildStarport(myUnit);
+					buildStarport(myUnit);
 				}
 				//	buildStarport(myUnit);
 				 if (!self.hasUnitTypeRequirement(UnitType.Terran_Science_Facility) 

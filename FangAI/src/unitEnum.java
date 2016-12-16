@@ -11,7 +11,7 @@ public class unitEnum {
 		//T3
 		DROPSHIP, WRAITH, BATTLECRUISER,
 		GHOST, VALKYRIE, SCIENCEVESSEL,
-		SCIENCELAB,
+		STARPORT, SCIENCELAB,
 		//MISC
 		TECHLAB, REFINERY, 
 		//DEFENSE
@@ -29,9 +29,18 @@ public class unitEnum {
 		else if (uType == UnitType.Terran_Barracks){
 			return Type.BARRACKS;
 		}
+		else if (uType == UnitType.Terran_Starport){
+			return Type.STARPORT;
+		}
+		else if (uType == UnitType.Terran_Science_Facility){
+			return Type.SCIENCELAB;
+		}
 		else if (uType == UnitType.Terran_Academy){
 			return Type.ACADEMY;
 		}		
+		else if (uType == UnitType.Terran_Missile_Turret){
+			return Type.TURRET;
+		}	
 		else if (uType == UnitType.Terran_Supply_Depot){
 			return Type.SUPPLY;
 		}		
