@@ -1,0 +1,18 @@
+﻿Build started 12/20/2016 3:38:47 PM.
+     1>Project "D:\FangAI\FangAI_v2\bwapi\PKLib\PKLib.vcxproj" on node 6 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W4 /WX- /MP /O2 /Ob2 /Oi /Ot /Oy /GT /GL /D NOMINMAX /D WIN32 /D NDEBUG /D _LIB /Gm- /MD /Zp1 /GS- /fp:precise /Za /Zc:wchar_t /Zc:forScope /GR- /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /wd4001 /analyze- /FC /errorReport:prompt crc32.cpp
+         crc32.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W4 /WX- /MP /O2 /Ob2 /Oi /Ot /Oy /GT /GL /D NOMINMAX /D WIN32 /D NDEBUG /D _LIB /Gm- /MD /Zp1 /GS- /fp:precise /Za /Zc:wchar_t /Zc:forScope /GR- /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TC /wd4001 /analyze- /FC /errorReport:prompt explode.c implode.c
+         explode.c
+         implode.c
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\FangAI\FangAI_v2\bwapi\Release\PKLib.lib" /NOLOGO /LTCG Release\crc32.obj
+         Release\explode.obj
+         Release\implode.obj
+         PKLib.vcxproj -> D:\FangAI\FangAI_v2\bwapi\Release\PKLib.lib
+     1>Done Building Project "D:\FangAI\FangAI_v2\bwapi\PKLib\PKLib.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.11

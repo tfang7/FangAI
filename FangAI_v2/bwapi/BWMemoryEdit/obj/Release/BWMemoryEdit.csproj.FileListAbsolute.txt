@@ -1,0 +1,12 @@
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\bin\Release\BWMemoryEdit.exe.config
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\bin\Release\BWMemoryEdit.exe
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\bin\Release\BWMemoryEdit.pdb
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\bin\Release\Fasm.NET.dll
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\bin\Release\MemorySharp.dll
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\bin\Release\MemorySharp.xml
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\obj\Release\BWMemoryEdit.MainWindow.resources
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\obj\Release\BWMemoryEdit.Properties.Resources.resources
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\obj\Release\BWMemoryEdit.csproj.GenerateResource.Cache
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\obj\Release\BWMemoryEdit.exe
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\obj\Release\BWMemoryEdit.pdb
+C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWMemoryEdit\obj\Release\BWMemoryEdit.csprojResolveAssemblyReference.cache

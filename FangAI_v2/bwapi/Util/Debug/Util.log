@@ -1,0 +1,7 @@
+﻿  Exceptions.cpp
+  MemoryFrame.cpp
+  Mutex.cpp
+  RemoteProcess.cpp
+  sha1.cpp
+  SharedMemory.cpp
+  Util.vcxproj -> C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Debug\Util.lib

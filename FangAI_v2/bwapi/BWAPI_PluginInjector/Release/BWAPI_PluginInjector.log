@@ -1,0 +1,38 @@
+﻿Build started 12/20/2016 3:38:48 PM.
+     1>Project "D:\FangAI\FangAI_v2\bwapi\BWAPI_PluginInjector\BWAPI_PluginInjector.vcxproj" on node 7 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /nologo /W4 /WX- /MP /O2 /Ob2 /Oi /Ot /Oy /GT /GL /D NOMINMAX /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D CREATETHREADREMOTETEST_EXPORTS /D _CRT_SECURE_NO_DEPRECATE /D _WINDLL /D _UNICODE /D UNICODE /GF /Gm- /EHsc /MT /GS- /fp:precise /Zc:wchar_t /Zc:forScope /GR- /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt chaoslauncher.cpp common.cpp config.cpp main.cpp mpqdraft.cpp remotethread.cpp valloc.cpp
+         chaoslauncher.cpp
+         common.cpp
+         config.cpp
+         main.cpp
+         mpqdraft.cpp
+         remotethread.cpp
+         valloc.cpp
+       PreLinkEvent:
+         COPY "D:\FangAI\FangAI_v2\bwapi\..\README.md" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\Chaoslauncher\Plugins\BWAPI_PluginInjector.txt" /Y
+         :VCEnd
+                 1 file(s) copied.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\FangAI\FangAI_v2\bwapi\Release\BWAPI_PluginInjector.dll" /NOLOGO Advapi32.lib User32.lib Shell32.lib /DEF:"QDPlugin.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /manifestinput:"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\Include\Manifest\dpiaware.manifest" /PDB:"D:\FangAI\FangAI_v2\bwapi\Release\BWAPI_PluginInjector.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\FangAI\FangAI_v2\bwapi\Release\BWAPI_PluginInjector.lib" /MACHINE:X86 /SAFESEH /DLL Release\chaoslauncher.obj
+         Release\common.obj
+         Release\config.obj
+         Release\main.obj
+         Release\mpqdraft.obj
+         Release\remotethread.obj
+         Release\valloc.obj
+            Creating library D:\FangAI\FangAI_v2\bwapi\Release\BWAPI_PluginInjector.lib and object D:\FangAI\FangAI_v2\bwapi\Release\BWAPI_PluginInjector.exp
+         Generating code
+         Finished generating code
+         BWAPI_PluginInjector.vcxproj -> D:\FangAI\FangAI_v2\bwapi\Release\BWAPI_PluginInjector.dll
+       PostBuildEvent:
+         COPY /Y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPI_PluginInjector.dll" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\Chaoslauncher\Plugins\BWAPI_PluginInjector.bwl"
+         COPY /Y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPI_PluginInjector.dll" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\MPQDraft\BWAPI_PluginInjector.qdp"
+         :VCEnd
+                 1 file(s) copied.
+                 1 file(s) copied.
+     1>Done Building Project "D:\FangAI\FangAI_v2\bwapi\BWAPI_PluginInjector\BWAPI_PluginInjector.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.16

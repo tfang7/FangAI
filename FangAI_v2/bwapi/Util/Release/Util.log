@@ -1,0 +1,23 @@
+﻿Build started 12/20/2016 3:38:47 PM.
+     1>Project "D:\FangAI\FangAI_v2\bwapi\Util\Util.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ISource\ /nologo /W3 /WX- /O2 /Ob2 /Oi /Ot /Oy /GT /GL /D NOMINMAX /D WIN32 /D NDEBUG /D _CRT_SECURE_NO_WARNINGS /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Util\Exceptions.cpp Source\Util\MemoryFrame.cpp Source\Util\Mutex.cpp Source\Util\RemoteProcess.cpp Source\Util\sha1.cpp Source\Util\SharedMemory.cpp
+         Exceptions.cpp
+         MemoryFrame.cpp
+         Mutex.cpp
+         RemoteProcess.cpp
+         sha1.cpp
+         SharedMemory.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\FangAI\FangAI_v2\bwapi\Release\Util.lib" /NOLOGO /LTCG Release\Exceptions.obj
+         Release\MemoryFrame.obj
+         Release\Mutex.obj
+         Release\RemoteProcess.obj
+         Release\sha1.obj
+         Release\SharedMemory.obj
+         Util.vcxproj -> D:\FangAI\FangAI_v2\bwapi\Release\Util.lib
+     1>Done Building Project "D:\FangAI\FangAI_v2\bwapi\Util\Util.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.70

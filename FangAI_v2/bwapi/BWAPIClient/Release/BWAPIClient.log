@@ -1,0 +1,48 @@
+﻿Build started 12/20/2016 3:38:47 PM.
+     1>Project "D:\FangAI\FangAI_v2\bwapi\BWAPIClient\BWAPIClient.vcxproj" on node 4 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../include /I../Shared /I../include/BWAPI/Client /Zi /nologo /W3 /WX- /MP /O2 /Ob2 /Oi /Ot /Oy /GT /GL /D NOMINMAX /D WIN32 /D NDEBUG /D _LIB /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"D:\FangAI\FangAI_v2\bwapi\Release\BWAPIClient.pdb" /Gd /TP /wd4996 /analyze- /errorReport:prompt Source\BulletImpl.cpp ..\Shared\BulletShared.cpp Source\Client.cpp Source\ForceImpl.cpp ..\Shared\ForceShared.cpp Source\GameImpl.cpp ..\Shared\GameShared.cpp Source\PlayerImpl.cpp ..\Shared\PlayerShared.cpp Source\RegionImpl.cpp ..\Shared\RegionShared.cpp Source\UnitImpl.cpp ..\Shared\UnitShared.cpp
+         BulletImpl.cpp
+         BulletShared.cpp
+         Client.cpp
+         ForceImpl.cpp
+         ForceShared.cpp
+         GameImpl.cpp
+         GameShared.cpp
+         PlayerImpl.cpp
+         PlayerShared.cpp
+         RegionImpl.cpp
+         RegionShared.cpp
+         UnitImpl.cpp
+         UnitShared.cpp
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\FangAI\FangAI_v2\bwapi\Release\BWAPIClient.lib" /NOLOGO /LTCG Release\BulletImpl.obj
+         Release\BulletShared.obj
+         Release\Client.obj
+         Release\ForceImpl.obj
+         Release\ForceShared.obj
+         Release\GameImpl.obj
+         Release\GameShared.obj
+         Release\PlayerImpl.obj
+         Release\PlayerShared.obj
+         Release\RegionImpl.obj
+         Release\RegionShared.obj
+         Release\UnitImpl.obj
+         Release\UnitShared.obj
+         BWAPIClient.vcxproj -> D:\FangAI\FangAI_v2\bwapi\Release\BWAPIClient.lib
+       PostBuildEvent:
+         COPY /y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPIClient.lib" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\lib\BWAPIClient.lib"
+         COPY /y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPIClient.pdb" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\lib\BWAPIClient.pdb"
+         COPY /y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPIClient.lib" "..\lib\BWAPIClient.lib"
+         COPY /y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPIClient.pdb" "..\lib\BWAPIClient.pdb"
+         
+         :VCEnd
+                 1 file(s) copied.
+                 1 file(s) copied.
+                 1 file(s) copied.
+                 1 file(s) copied.
+     1>Done Building Project "D:\FangAI\FangAI_v2\bwapi\BWAPIClient\BWAPIClient.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.16

@@ -1,0 +1,41 @@
+﻿Build started 12/20/2016 3:38:50 PM.
+     1>Project "D:\FangAI\FangAI_v2\bwapi\SNP_DirectIP\SNP_DirectIP.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../Util/Source /I../Storm /Zi /nologo /W3 /WX- /MP /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D SNP_DIRECTIP_EXPORTS /D _CRT_SECURE_NO_WARNINGS /D _WINDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SNP\CriticalSection.cpp SNP\DLLMain.cpp SNP\SNPModule.cpp SNP\DirectIP.cpp SNP\SettingsDialog.cpp SNP\UDPSocket.cpp SNP\LocalPC.cpp SNP\Output.cpp
+         CriticalSection.cpp
+         DLLMain.cpp
+         SNPModule.cpp
+         DirectIP.cpp
+         SettingsDialog.cpp
+         UDPSocket.cpp
+         LocalPC.cpp
+         Output.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /l"0x0409" /nologo /fo"Release\UI.res" SNP\UI.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\FangAI\FangAI_v2\bwapi\Release\SNP_DirectIP.dll" /INCREMENTAL:NO /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"SNP/SNPModule.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\FangAI\FangAI_v2\bwapi\Release\SNP_DirectIP.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\FangAI\FangAI_v2\bwapi\Release\SNP_DirectIP.lib" /MACHINE:X86 /SAFESEH /DLL Release\UI.res
+         Release\CriticalSection.obj
+         Release\DLLMain.obj
+         Release\SNPModule.obj
+         Release\DirectIP.obj
+         Release\SettingsDialog.obj
+         Release\UDPSocket.obj
+         Release\LocalPC.obj
+         Release\Output.obj
+         D:\FangAI\FangAI_v2\bwapi\Release\Storm.lib
+         D:\FangAI\FangAI_v2\bwapi\Release\Util.lib
+            Creating library D:\FangAI\FangAI_v2\bwapi\Release\SNP_DirectIP.lib and object D:\FangAI\FangAI_v2\bwapi\Release\SNP_DirectIP.exp
+         Generating code
+         Finished generating code
+         SNP_DirectIP.vcxproj -> D:\FangAI\FangAI_v2\bwapi\Release\SNP_DirectIP.dll
+       PostBuildEvent:
+         copy /Y /B "D:\FangAI\FangAI_v2\bwapi\Release\SNP_DirectIP.dll" + "SNP\caps.mpq" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\Starcraft\SNP_DirectIP.snp"
+         :VCEnd
+         D:\FangAI\FangAI_v2\bwapi\Release\SNP_DirectIP.dll
+         SNP\caps.mpq
+                 1 file(s) copied.
+     1>Done Building Project "D:\FangAI\FangAI_v2\bwapi\SNP_DirectIP\SNP_DirectIP.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.15

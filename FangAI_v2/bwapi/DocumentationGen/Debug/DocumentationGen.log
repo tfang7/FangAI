@@ -1,0 +1,22 @@
+﻿  bullettypes.cpp
+  colortypes.cpp
+  damagetypes.cpp
+  errors.cpp
+  explosiontypes.cpp
+  gametypes.cpp
+  helpers.cpp
+  main.cpp
+c:\users\dkfan\desktop\bwapi-4.1.2\bwapi\documentationgen\colortypes.cpp(16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
+  orders.cpp
+  playertypes.cpp
+  races.cpp
+  techtypes.cpp
+  unitcommandtypes.cpp
+  unitsizetypes.cpp
+  unittypes.cpp
+  unittypestestgen.cpp
+  upgradetypes.cpp
+  weapontypes.cpp
+  DocumentationGen.vcxproj -> C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Debug\DocumentationGen.exe
+  DocumentationGen.vcxproj -> C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Debug\DocumentationGen.pdb (Full PDB)

@@ -1,0 +1,15 @@
+﻿  BulletImpl.cpp
+  BulletShared.cpp
+  Client.cpp
+  ForceImpl.cpp
+  ForceShared.cpp
+  GameImpl.cpp
+  GameShared.cpp
+  PlayerImpl.cpp
+Source\GameImpl.cpp(226): error C2280: 'BWAPI::Unitset &BWAPI::Unitset::operator =(const BWAPI::Unitset &)': attempting to reference a deleted function
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI/Unitset.h(184): note: compiler has generated 'BWAPI::Unitset::operator =' here
+  PlayerShared.cpp
+  RegionImpl.cpp
+  RegionShared.cpp
+  UnitImpl.cpp
+  UnitShared.cpp

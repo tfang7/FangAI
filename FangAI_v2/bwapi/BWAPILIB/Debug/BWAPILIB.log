@@ -1,0 +1,229 @@
+﻿  AIModule.cpp
+  BulletType.cpp
+  BWAPI.cpp
+  Color.cpp
+  DamageType.cpp
+  Error.cpp
+  Event.cpp
+  ExplosionType.cpp
+Source\Event.cpp(229): warning C4458: declaration of 'type' hides class member
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI/Event.h(61): note: see declaration of 'BWAPI::Event::type' (compiling source file Source\Event.cpp)
+Source\Event.cpp(234): warning C4458: declaration of 'position' hides class member
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI/Event.h(57): note: see declaration of 'BWAPI::Event::position' (compiling source file Source\Event.cpp)
+Source\Event.cpp(239): warning C4458: declaration of 'text' hides class member
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI/Event.h(58): note: see declaration of 'BWAPI::Event::text' (compiling source file Source\Event.cpp)
+Source\Event.cpp(262): warning C4458: declaration of 'unit' hides class member
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI/Event.h(59): note: see declaration of 'BWAPI::Event::unit' (compiling source file Source\Event.cpp)
+Source\Event.cpp(267): warning C4458: declaration of 'player' hides class member
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI/Event.h(60): note: see declaration of 'BWAPI::Event::player' (compiling source file Source\Event.cpp)
+  Filters.cpp
+  Forceset.cpp
+  Game.cpp
+  GameType.cpp
+  Order.cpp
+  Player.cpp
+  Playerset.cpp
+  PlayerType.cpp
+  Position.cpp
+  PositionUnit.cpp
+  Race.cpp
+  Region.cpp
+  Regionset.cpp
+  TechType.cpp
+  Unit.cpp
+  Unitset.cpp
+Source\Regionset.cpp(35): warning C4456: declaration of 'units' hides previous local declaration
+  Source\Regionset.cpp(32): note: see declaration of 'units'
+  UnitCommand.cpp
+  UnitCommandType.cpp
+  UnitSizeType.cpp
+  UnitType.cpp
+  UpgradeType.cpp
+  WeaponType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWTA.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\AIModule.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\ArithmaticFilter.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\BestFilter.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Bullet.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Bulletset.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\BulletType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Color.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\ComparisonFilter.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Constants.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\CoordinateType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\DamageType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Error.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Event.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\EventType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\ExplosionType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Filters.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Flag.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Force.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Forceset.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Game.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\GameType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Input.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Interface.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\InterfaceEvent.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Latency.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Order.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Player.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Playerset.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\PlayerType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Position.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\PositionUnit.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Race.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Region.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Regionset.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\SetContainer.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\TechType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\TournamentAction.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Type.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\UnaryFilter.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Unit.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\UnitCommand.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\UnitCommandType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Unitset.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\UnitSizeType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\UnitType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\UpgradeType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\WeaponType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\WindowsTypes.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\BulletData.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\BulletImpl.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\Client.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\Command.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\CommandType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\Event.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\ForceData.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\ForceImpl.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\GameData.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\GameImpl.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\GameTable.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\PlayerData.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\PlayerImpl.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\RegionData.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\RegionImpl.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\Shape.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\ShapeType.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\UnitCommand.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\UnitData.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI\Client\UnitImpl.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWTA\BaseLocation.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWTA\Chokepoint.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWTA\Polygon.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWTA\RectangleArray.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWTA\Region.h
+  76 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\ExampleAIModule.vcxproj
+  1 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\ExampleAIModule.vcxproj.filters
+  1 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\Base.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\BaseManager.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\FangController.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\resource.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\UnitManager.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\Source\FangBot.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\Source\BWTAnalyze\BWTA.h
+  7 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\Base.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\BaseManager.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\FangController.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\UnitManager.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\Source\Dll.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIModule\Source\FangBot.cpp
+  6 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIClient\ExampleAIClient.vcxproj
+  1 File(s) copied
+  File not found - *.vcxproj.filters
+  0 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleAIClient\Source\ExampleAIClient.cpp
+  1 File(s) copied
+  File not found - *.h
+  0 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleTournamentModule\ExampleTournamentModule.vcxproj
+  1 File(s) copied
+  File not found - *.vcxproj.filters
+  0 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleTournamentModule\Source\Dll.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleTournamentModule\Source\ExampleTournamentModule.cpp
+  2 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\ExampleTournamentModule\Source\ExampleTournamentModule.h
+  1 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\AIModuleLoader\AIModuleLoader.vcxproj
+  1 File(s) copied
+  File not found - *.vcxproj.filters
+  0 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\AIModuleLoader\Source\AIModuleLoader.cpp
+  1 File(s) copied
+  File not found - *.h
+  0 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\BWAPILIB.vcxproj
+  1 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\BWAPILIB.vcxproj.filters
+  1 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\UnitCommand.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\AIModule.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\BulletType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\BWAPI.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Color.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\DamageType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Error.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Event.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\ExplosionType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Filters.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Forceset.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Game.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\GameType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Order.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Player.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Playerset.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\PlayerType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Position.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\PositionUnit.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Race.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Region.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Regionset.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\TechType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Unit.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\UnitCommandType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Unitset.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\UnitSizeType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\UnitType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\UpgradeType.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\WeaponType.cpp
+  30 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPILIB\Source\Common.h
+  1 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\BWAPIClient.vcxproj
+  1 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\BWAPIClient.vcxproj.filters
+  1 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\Source\BulletImpl.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\Source\Client.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\Source\ForceImpl.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\Source\GameImpl.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\Source\PlayerImpl.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\Source\RegionImpl.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\Source\UnitImpl.cpp
+  7 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\Source\Command.h
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPIClient\Source\Convenience.h
+  2 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Shared\BulletShared.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Shared\ForceShared.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Shared\GameShared.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Shared\PlayerShared.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Shared\RegionShared.cpp
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Shared\UnitShared.cpp
+  6 File(s) copied
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Shared\Templates.h
+  1 File(s) copied
+  BWAPILIB.vcxproj -> C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Debug\BWAPILIB.lib
+          1 file(s) copied.
+          1 file(s) copied.
+          1 file(s) copied.
+          1 file(s) copied.

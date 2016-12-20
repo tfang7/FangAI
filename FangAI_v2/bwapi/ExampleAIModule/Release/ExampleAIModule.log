@@ -1,0 +1,34 @@
+﻿Build started 12/20/2016 3:50:24 PM.
+     1>Project "D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\ExampleAIModule.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../include /Zi /nologo /W3 /WX- /MP /O2 /Oi /Oy- /GL /D NOMINMAX /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D EXAMPLEAIMODULE_EXPORTS /D _WINDLL /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Dll.cpp
+         Dll.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\FangAI\FangAI_v2\bwapi\Release\FangBot.dll" /INCREMENTAL:NO /NOLOGO ../lib/BWAPI.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\FangAI\FangAI_v2\bwapi\Release\FangBot.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Release\FangBot.lib" /MACHINE:X86 /SAFESEH /DLL Release\EasyBMP.obj
+         Release\area.obj
+         Release\base.obj
+         Release\bwapiExt.obj
+         Release\bwem.obj
+         Release\cp.obj
+         Release\examples.obj
+         Release\graph.obj
+         Release\gridMap.obj
+         Release\map.obj
+         Release\mapDrawer.obj
+         Release\mapImpl.obj
+         Release\mapPrinter.obj
+         Release\neutral.obj
+         Release\tiles.obj
+         Release\utils.obj
+         Release\winutils.obj
+         Release\Dll.obj
+         Release\FangBot.obj
+            Creating library Release\FangBot.lib and object Release\FangBot.exp
+         Generating code
+         Finished generating code
+         ExampleAIModule.vcxproj -> D:\FangAI\FangAI_v2\bwapi\Release\FangBot.dll
+     1>Done Building Project "D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\ExampleAIModule.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.12

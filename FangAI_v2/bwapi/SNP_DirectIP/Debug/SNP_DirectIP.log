@@ -1,0 +1,14 @@
+﻿  CriticalSection.cpp
+  DLLMain.cpp
+  SNPModule.cpp
+  DirectIP.cpp
+  SettingsDialog.cpp
+  UDPSocket.cpp
+  LocalPC.cpp
+  Output.cpp
+     Creating library C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Debug\SNP_DirectIP.lib and object C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Debug\SNP_DirectIP.exp
+  SNP_DirectIP.vcxproj -> C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Debug\SNP_DirectIP.dll
+  SNP_DirectIP.vcxproj -> C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Debug\SNP_DirectIP.pdb (Full PDB)
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\Debug\SNP_DirectIP.dll
+  SNP\caps.mpq
+          1 file(s) copied.

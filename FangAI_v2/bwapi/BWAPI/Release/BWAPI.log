@@ -1,0 +1,141 @@
+﻿Build started 12/20/2016 3:38:56 PM.
+     1>Project "D:\FangAI\FangAI_v2\bwapi\BWAPI\BWAPI.vcxproj" on node 4 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../Shared /ISource/BWAPI /I../Util/Source /ISource /I../include /I../Storm /Zi /nologo /W4 /WX- /MP /O2 /Ob2 /Oi /Ot /Oy /GT /GL /D NOMINMAX /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D CTRT_INJECT_EXPORTS /D _CRT_SECURE_NO_DEPRECATE /D _WINDLL /GF /Gm- /EHsc /MD /GS- /fp:fast /Zc:wchar_t /Zc:forScope /GR- /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /wd4238 /wd4480 /wd4481 /analyze- /errorReport:prompt ..\Shared\BulletShared.cpp ..\Shared\ForceShared.cpp ..\Shared\GameShared.cpp ..\Shared\PlayerShared.cpp ..\Shared\RegionShared.cpp ..\Shared\UnitShared.cpp Source\Assembly.cpp Source\BWAPI\APMCounter.cpp Source\BWAPI\AutoMenuManager.cpp Source\BWAPI\BulletImpl.cpp Source\BWAPI\BWtoBWAPI.cpp Source\BWAPI\CommandOptimizer.cpp Source\BWAPI\ForceImpl.cpp Source\BWAPI\FPSCounter.cpp Source\BWAPI\GameBullets.cpp Source\BWAPI\GameCommands.cpp Source\BWAPI\GameDrawing.cpp Source\BWAPI\GameEvents.cpp Source\BWAPI\GameImpl.cpp Source\BWAPI\GameInternals.cpp Source\BWAPI\GameMenu.cpp Source\BWAPI\GameUnits.cpp Source\BWAPI\Map.cpp Source\BWAPI\PlayerImpl.cpp Source\BWAPI\RegionImpl.cpp Source\BWAPI\Server.cpp Source\BWAPI\UnitImpl.cpp Source\BWAPI\UnitUpdate.cpp Source\BW\Bitmap.cpp Source\BW\CheatType.cpp Source\BW\CSprite.cpp Source\BW\CThingy.cpp Source\BW\Dialog.cpp Source\BW\CImage.cpp Source\BW\Font.cpp Source\BW\Internal.cpp Source\BW\OrderTypes.cpp Source\BW\Path.cpp Source\BW\Pathing.cpp Source\BW\PositionUnitTarget.cpp Source\BW\Render.cpp Source\BW\Target.cpp Source\BW\TileSet.cpp Source\BW\TriggerEngine.cpp Source\BW\CUnit.cpp Source\BW\UnitTarget.cpp Source\CodePatch.cpp Source\Config.cpp Source\Detours.cpp Source\DLLMain.cpp Source\ExceptionFilter.cpp Source\GameUpdate.cpp Source\Graphics.cpp Source\NewHackUtil.cpp Source\Resolution.cpp Source\Thread.cpp Source\WMode.cpp
+         BulletShared.cpp
+         ForceShared.cpp
+         GameShared.cpp
+         PlayerShared.cpp
+         RegionShared.cpp
+         UnitShared.cpp
+         Assembly.cpp
+         APMCounter.cpp
+         AutoMenuManager.cpp
+         BulletImpl.cpp
+         BWtoBWAPI.cpp
+         CommandOptimizer.cpp
+         ForceImpl.cpp
+         FPSCounter.cpp
+         GameBullets.cpp
+         GameCommands.cpp
+         GameDrawing.cpp
+         GameEvents.cpp
+         GameImpl.cpp
+         GameInternals.cpp
+         GameMenu.cpp
+         GameUnits.cpp
+         Map.cpp
+         PlayerImpl.cpp
+         RegionImpl.cpp
+         Server.cpp
+         UnitImpl.cpp
+         UnitUpdate.cpp
+         Bitmap.cpp
+         CheatType.cpp
+         CSprite.cpp
+         CThingy.cpp
+         Dialog.cpp
+         CImage.cpp
+         Font.cpp
+         Internal.cpp
+         OrderTypes.cpp
+         Path.cpp
+         Pathing.cpp
+         PositionUnitTarget.cpp
+         Render.cpp
+         Target.cpp
+         TileSet.cpp
+         TriggerEngine.cpp
+         CUnit.cpp
+         UnitTarget.cpp
+         CodePatch.cpp
+         Config.cpp
+         Detours.cpp
+         DLLMain.cpp
+         ExceptionFilter.cpp
+         GameUpdate.cpp
+         Graphics.cpp
+         NewHackUtil.cpp
+         Resolution.cpp
+         Thread.cpp
+         WMode.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\FangAI\FangAI_v2\bwapi\Release\BWAPI.dll" /INCREMENTAL:NO /NOLOGO Vfw32.lib Version.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\FangAI\FangAI_v2\bwapi\Release\BWAPI.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE:NO /NXCOMPAT /IMPLIB:"D:\FangAI\FangAI_v2\bwapi\Release\BWAPI.lib" /MACHINE:X86 /SAFESEH /DLL Release\BulletShared.obj
+         Release\ForceShared.obj
+         Release\GameShared.obj
+         Release\PlayerShared.obj
+         Release\RegionShared.obj
+         Release\UnitShared.obj
+         Release\Assembly.obj
+         Release\APMCounter.obj
+         Release\AutoMenuManager.obj
+         Release\BulletImpl.obj
+         Release\BWtoBWAPI.obj
+         Release\CommandOptimizer.obj
+         Release\ForceImpl.obj
+         Release\FPSCounter.obj
+         Release\GameBullets.obj
+         Release\GameCommands.obj
+         Release\GameDrawing.obj
+         Release\GameEvents.obj
+         Release\GameImpl.obj
+         Release\GameInternals.obj
+         Release\GameMenu.obj
+         Release\GameUnits.obj
+         Release\Map.obj
+         Release\PlayerImpl.obj
+         Release\RegionImpl.obj
+         Release\Server.obj
+         Release\UnitImpl.obj
+         Release\UnitUpdate.obj
+         Release\Bitmap.obj
+         Release\CheatType.obj
+         Release\CSprite.obj
+         Release\CThingy.obj
+         Release\Dialog.obj
+         Release\CImage.obj
+         Release\Font.obj
+         Release\Internal.obj
+         Release\OrderTypes.obj
+         Release\Path.obj
+         Release\Pathing.obj
+         Release\PositionUnitTarget.obj
+         Release\Render.obj
+         Release\Target.obj
+         Release\TileSet.obj
+         Release\TriggerEngine.obj
+         Release\CUnit.obj
+         Release\UnitTarget.obj
+         Release\CodePatch.obj
+         Release\Config.obj
+         Release\Detours.obj
+         Release\DLLMain.obj
+         Release\ExceptionFilter.obj
+         Release\GameUpdate.obj
+         Release\Graphics.obj
+         Release\NewHackUtil.obj
+         Release\Resolution.obj
+         Release\Thread.obj
+         Release\WMode.obj
+         D:\FangAI\FangAI_v2\bwapi\Release\BWAPILIB.lib
+         D:\FangAI\FangAI_v2\bwapi\Release\Util.lib
+         D:\FangAI\FangAI_v2\bwapi\Release\Storm.lib
+         Generating code
+         Finished generating code
+         BWAPI.vcxproj -> D:\FangAI\FangAI_v2\bwapi\Release\BWAPI.dll
+       PostBuildEvent:
+         COPY /Y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPI.dll" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\Starcraft\bwapi-data\BWAPI.dll"
+         pushd "D:\FangAI\FangAI_v2\bwapi\"
+         cscript "./copyToTarget.vbs" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\Starcraft\bwapi-data\BWAPI.dll"
+         popd
+         :VCEnd
+                 1 file(s) copied.
+         Microsoft (R) Windows Script Host Version 5.812
+         Copyright (C) Microsoft Corporation. All rights reserved.
+         
+         Copying D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\Starcraft\bwapi-data\BWAPI.dll to C:\Program Files (x86)\StarCraft\\bwapi-data\
+     1>Done Building Project "D:\FangAI\FangAI_v2\bwapi\BWAPI\BWAPI.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:39.46

@@ -1,0 +1,79 @@
+﻿  BulletShared.cpp
+  ForceShared.cpp
+  GameShared.cpp
+  PlayerShared.cpp
+  RegionShared.cpp
+  UnitShared.cpp
+  Assembly.cpp
+  APMCounter.cpp
+..\Shared\BulletShared.cpp(74): warning C4458: declaration of 'id' hides class member
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\BWAPI\Source\BWAPI\BulletImpl.h(53): note: see declaration of 'BWAPI::BulletImpl::id' (compiling source file ..\Shared\BulletShared.cpp)
+  AutoMenuManager.cpp
+  BulletImpl.cpp
+  BWtoBWAPI.cpp
+  CommandOptimizer.cpp
+  ForceImpl.cpp
+  FPSCounter.cpp
+  GameBullets.cpp
+  GameCommands.cpp
+  GameDrawing.cpp
+  GameEvents.cpp
+  GameImpl.cpp
+  GameInternals.cpp
+  GameMenu.cpp
+  GameUnits.cpp
+  Map.cpp
+  PlayerImpl.cpp
+  RegionImpl.cpp
+Source\BWAPI\GameUnits.cpp(89): error C2280: 'BWAPI::Unitset &BWAPI::Unitset::operator =(const BWAPI::Unitset &)': attempting to reference a deleted function
+  C:\Users\dkfan\Desktop\bwapi-4.1.2\bwapi\include\BWAPI/Unitset.h(184): note: compiler has generated 'BWAPI::Unitset::operator =' here
+  Server.cpp
+  UnitImpl.cpp
+Source\BWAPI\Server.cpp(427): warning C4456: declaration of 'i' hides previous local declaration
+  Source\BWAPI\Server.cpp(417): note: see declaration of 'i'
+Source\BWAPI\Server.cpp(434): warning C4456: declaration of 'i' hides previous local declaration
+  Source\BWAPI\Server.cpp(417): note: see declaration of 'i'
+Source\BWAPI\Server.cpp(538): warning C4456: declaration of 'i' hides previous local declaration
+  Source\BWAPI\Server.cpp(529): note: see declaration of 'i'
+Source\BWAPI\Server.cpp(593): warning C4456: declaration of 'i' hides previous local declaration
+  Source\BWAPI\Server.cpp(529): note: see declaration of 'i'
+Source\BWAPI\Server.cpp(596): warning C4456: declaration of 'i' hides previous local declaration
+  Source\BWAPI\Server.cpp(529): note: see declaration of 'i'
+Source\BWAPI\Server.cpp(611): warning C4456: declaration of 'i' hides previous local declaration
+  Source\BWAPI\Server.cpp(529): note: see declaration of 'i'
+  UnitUpdate.cpp
+  Bitmap.cpp
+  CheatType.cpp
+  CSprite.cpp
+  CThingy.cpp
+  Dialog.cpp
+  CImage.cpp
+  Font.cpp
+  Internal.cpp
+  OrderTypes.cpp
+Source\BW\Dialog.cpp(242): warning C4458: declaration of 'wIndex' hides class member
+  c:\users\dkfan\desktop\bwapi-4.1.2\bwapi\bwapi\source\bw\Dialog.h(212): note: see declaration of 'BW::dialog::wIndex' (compiling source file Source\BW\Dialog.cpp)
+  Path.cpp
+  Pathing.cpp
+  PositionUnitTarget.cpp
+  Render.cpp
+  Target.cpp
+  TileSet.cpp
+  TriggerEngine.cpp
+Source\BW\Pathing.cpp(27): warning C4458: declaration of 'neighbors' hides class member
+  c:\users\dkfan\desktop\bwapi-4.1.2\bwapi\bwapi\source\bw\Pathing.h(59): note: see declaration of 'BW::region::neighbors' (compiling source file Source\BW\Pathing.cpp)
+  CUnit.cpp
+  UnitTarget.cpp
+  CodePatch.cpp
+  Config.cpp
+  Detours.cpp
+  DLLMain.cpp
+  ExceptionFilter.cpp
+  GameUpdate.cpp
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\Dbghelp.h(1544): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file Source\ExceptionFilter.cpp)
+C:\Program Files (x86)\Windows Kits\8.1\Include\um\Dbghelp.h(3190): warning C4091: 'typedef ': ignored on left of '' when no variable is declared (compiling source file Source\ExceptionFilter.cpp)
+  Graphics.cpp
+  NewHackUtil.cpp
+  Resolution.cpp
+  Thread.cpp
+  WMode.cpp

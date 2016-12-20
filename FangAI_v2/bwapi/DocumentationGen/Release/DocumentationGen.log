@@ -1,0 +1,51 @@
+﻿Build started 12/20/2016 3:38:56 PM.
+     1>Project "D:\FangAI\FangAI_v2\bwapi\DocumentationGen\DocumentationGen.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../include/ /Zi /nologo /W3 /WX- /MP /O2 /Oi /Oy- /GL /D NOMINMAX /D WIN32 /D NDEBUG /D _CONSOLE /Gm- /EHsc /MD /GS /Gy /fp:precise /Za /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt bullettypes.cpp colortypes.cpp damagetypes.cpp errors.cpp explosiontypes.cpp gametypes.cpp helpers.cpp main.cpp orders.cpp playertypes.cpp races.cpp techtypes.cpp unitcommandtypes.cpp unitsizetypes.cpp unittypes.cpp unittypestestgen.cpp upgradetypes.cpp weapontypes.cpp
+         bullettypes.cpp
+         colortypes.cpp
+         damagetypes.cpp
+         errors.cpp
+         explosiontypes.cpp
+         gametypes.cpp
+         helpers.cpp
+         main.cpp
+     1>colortypes.cpp(16): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(356) : see declaration of 'sprintf'
+         orders.cpp
+         playertypes.cpp
+         races.cpp
+         techtypes.cpp
+         unitcommandtypes.cpp
+         unitsizetypes.cpp
+         unittypes.cpp
+         unittypestestgen.cpp
+         upgradetypes.cpp
+         weapontypes.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\FangAI\FangAI_v2\bwapi\Release\DocumentationGen.exe" /NOLOGO ../lib/BWAPI.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\FangAI\FangAI_v2\bwapi\Release\DocumentationGen.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\FangAI\FangAI_v2\bwapi\Release\DocumentationGen.lib" /MACHINE:X86 /SAFESEH Release\bullettypes.obj
+         Release\colortypes.obj
+         Release\damagetypes.obj
+         Release\errors.obj
+         Release\explosiontypes.obj
+         Release\gametypes.obj
+         Release\helpers.obj
+         Release\main.obj
+         Release\orders.obj
+         Release\playertypes.obj
+         Release\races.obj
+         Release\techtypes.obj
+         Release\unitcommandtypes.obj
+         Release\unitsizetypes.obj
+         Release\unittypes.obj
+         Release\unittypestestgen.obj
+         Release\upgradetypes.obj
+         Release\weapontypes.obj
+         Generating code
+         Finished generating code
+         DocumentationGen.vcxproj -> D:\FangAI\FangAI_v2\bwapi\Release\DocumentationGen.exe
+     1>Done Building Project "D:\FangAI\FangAI_v2\bwapi\DocumentationGen\DocumentationGen.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:22.53

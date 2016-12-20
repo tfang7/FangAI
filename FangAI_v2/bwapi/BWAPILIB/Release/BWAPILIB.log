@@ -1,0 +1,334 @@
+﻿Build started 12/20/2016 3:38:47 PM.
+     1>Project "D:\FangAI\FangAI_v2\bwapi\BWAPILIB\BWAPILIB.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../include /I../Util/Source /I../BWAPI/Source /Zi /nologo /W4 /WX- /MP /O2 /Ob2 /Oi /Ot /Oy /GT /GL /D NOMINMAX /D WIN32 /D NDEBUG /GF /Gm- /EHsc /MD /GS- /Gy /fp:precise /Za /Zc:wchar_t /Zc:forScope /GR- /Fo"Release\\" /Fd"D:\FangAI\FangAI_v2\bwapi\Release\BWAPILib.pdb" /Gd /TP /wd4480 /analyze- /errorReport:prompt Source\AIModule.cpp Source\BulletType.cpp Source\BWAPI.cpp Source\Color.cpp Source\DamageType.cpp Source\Error.cpp Source\Event.cpp Source\ExplosionType.cpp Source\Filters.cpp Source\Forceset.cpp Source\Game.cpp Source\GameType.cpp Source\Order.cpp Source\Player.cpp Source\Playerset.cpp Source\PlayerType.cpp Source\Position.cpp Source\PositionUnit.cpp Source\Race.cpp Source\Region.cpp Source\Regionset.cpp Source\TechType.cpp Source\Unit.cpp Source\Unitset.cpp UnitCommand.cpp Source\UnitCommandType.cpp Source\UnitSizeType.cpp Source\UnitType.cpp Source\UpgradeType.cpp Source\WeaponType.cpp
+         AIModule.cpp
+         BulletType.cpp
+         BWAPI.cpp
+         Color.cpp
+         DamageType.cpp
+         Error.cpp
+         Event.cpp
+         ExplosionType.cpp
+         Filters.cpp
+         Forceset.cpp
+         Game.cpp
+         GameType.cpp
+         Order.cpp
+         Player.cpp
+         Playerset.cpp
+         PlayerType.cpp
+         Position.cpp
+         PositionUnit.cpp
+         Race.cpp
+         Region.cpp
+         Regionset.cpp
+         TechType.cpp
+         Unit.cpp
+         Unitset.cpp
+         UnitCommand.cpp
+         UnitCommandType.cpp
+         UnitSizeType.cpp
+         UnitType.cpp
+         UpgradeType.cpp
+         WeaponType.cpp
+       PreLinkEvent:
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\include\*.h" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\include" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\*.vcxproj" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleAIModule" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\*.vcxproj.filters" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleAIModule" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\*.h" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleAIModule" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\*.cpp" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleAIModule" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleAIClient\*.vcxproj" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleAIClient" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleAIClient\*.vcxproj.filters" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleAIClient" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleAIClient\*.cpp" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleAIClient" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleAIClient\*.h" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleAIClient" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleTournamentModule\*.vcxproj" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleTournamentModule" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleTournamentModule\*.vcxproj.filters" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleTournamentModule" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleTournamentModule\*.cpp" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleTournamentModule" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\ExampleTournamentModule\*.h" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\ExampleTournamentModule" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\AIModuleLoader\*.vcxproj" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\AIModuleLoader" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\AIModuleLoader\*.vcxproj.filters" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\AIModuleLoader" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\AIModuleLoader\*.cpp" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\AIModuleLoader" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\AIModuleLoader\*.h" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\AIModuleLoader" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\BWAPILIB\*.vcxproj" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\BWAPILIB" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\BWAPILIB\*.vcxproj.filters" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\BWAPILIB" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\BWAPILIB\*.cpp" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\BWAPILIB" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\BWAPILIB\*.h" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\BWAPILIB" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\BWAPIClient\*.vcxproj" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\BWAPIClient" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\BWAPIClient\*.vcxproj.filters" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\BWAPIClient" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\BWAPIClient\*.cpp" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\BWAPIClient" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\BWAPIClient\*.h" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\BWAPIClient" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\Shared\*.cpp" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\Shared" /S /C /I /R /Y
+         XCOPY "D:\FangAI\FangAI_v2\bwapi\Shared\*.h" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\Shared" /S /C /I /R /Y
+         
+         :VCEnd
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWTA.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\AIModule.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\ArithmaticFilter.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\BestFilter.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Bullet.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Bulletset.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\BulletType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Color.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\ComparisonFilter.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Constants.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\CoordinateType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\DamageType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Error.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Event.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\EventType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\ExplosionType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Filters.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Flag.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Force.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Forceset.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Game.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\GameType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Input.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Interface.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\InterfaceEvent.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Latency.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Order.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Player.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Playerset.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\PlayerType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Position.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\PositionUnit.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Race.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Region.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Regionset.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\SetContainer.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\TechType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\TournamentAction.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Type.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\UnaryFilter.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Unit.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\UnitCommand.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\UnitCommandType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Unitset.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\UnitSizeType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\UnitType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\UpgradeType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\WeaponType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\WindowsTypes.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\BulletData.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\BulletImpl.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\Client.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\Command.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\CommandType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\Event.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\ForceData.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\ForceImpl.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\GameData.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\GameImpl.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\GameTable.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\PlayerData.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\PlayerImpl.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\RegionData.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\RegionImpl.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\Shape.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\ShapeType.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\UnitCommand.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\UnitData.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWAPI\Client\UnitImpl.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWTA\BaseLocation.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWTA\Chokepoint.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWTA\Polygon.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWTA\RectangleArray.h
+         D:\FangAI\FangAI_v2\bwapi\include\BWTA\Region.h
+         76 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\ExampleAIModule.vcxproj
+         1 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\ExampleAIModule.vcxproj.filters
+         1 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Base.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\BaseManager.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\FangController.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\resource.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\UnitManager.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\ExampleAIModule.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\FangBot.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\EasyBMP_1.06\EasyBMP.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\EasyBMP_1.06\EasyBMP_BMP.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\EasyBMP_1.06\EasyBMP_DataStructures.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\EasyBMP_1.06\EasyBMP_VariousBMPutilities.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\area.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\base.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\bwapiExt.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\bwem.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\cp.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\defs.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\examples.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\graph.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\gridMap.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\map.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\mapDrawer.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\mapImpl.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\mapPrinter.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\neutral.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\tiles.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\utils.h
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\winutils.h
+         28 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Base.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\BaseManager.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\FangController.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\UnitManager.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\Dll.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\ExampleAIModule.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\FangBot.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\EasyBMP_1.06\EasyBMP.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\EasyBMP_1.06\sample\EasyBMPsample.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\area.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\base.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\bwapiExt.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\bwem.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\cp.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\examples.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\graph.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\gridMap.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\map.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\mapDrawer.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\mapImpl.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\mapPrinter.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\neutral.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\tiles.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\utils.cpp
+         D:\FangAI\FangAI_v2\bwapi\ExampleAIModule\Source\BWEM\src\winutils.cpp
+         25 File(s) copied
+         File not found - *.vcxproj
+         0 File(s) copied
+         File not found - *.vcxproj.filters
+         0 File(s) copied
+         File not found - *.cpp
+         0 File(s) copied
+         File not found - *.h
+         0 File(s) copied
+         File not found - *.vcxproj
+         0 File(s) copied
+         File not found - *.vcxproj.filters
+         0 File(s) copied
+         File not found - *.cpp
+         0 File(s) copied
+         File not found - *.h
+         0 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\AIModuleLoader\AIModuleLoader.vcxproj
+         1 File(s) copied
+         File not found - *.vcxproj.filters
+         0 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\AIModuleLoader\Source\AIModuleLoader.cpp
+         1 File(s) copied
+         File not found - *.h
+         0 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\BWAPILIB.vcxproj
+         1 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\BWAPILIB.vcxproj.filters
+         1 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\UnitCommand.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\AIModule.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\BulletType.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\BWAPI.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Color.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\DamageType.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Error.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Event.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\ExplosionType.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Filters.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Forceset.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Game.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\GameType.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Order.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Player.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Playerset.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\PlayerType.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Position.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\PositionUnit.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Race.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Region.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Regionset.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\TechType.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Unit.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\UnitCommandType.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Unitset.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\UnitSizeType.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\UnitType.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\UpgradeType.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\WeaponType.cpp
+         30 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\BWAPILIB\Source\Common.h
+         1 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\BWAPIClient.vcxproj
+         1 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\BWAPIClient.vcxproj.filters
+         1 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\Source\BulletImpl.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\Source\Client.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\Source\ForceImpl.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\Source\GameImpl.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\Source\PlayerImpl.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\Source\RegionImpl.cpp
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\Source\UnitImpl.cpp
+         7 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\Source\Command.h
+         D:\FangAI\FangAI_v2\bwapi\BWAPIClient\Source\Convenience.h
+         2 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\Shared\BulletShared.cpp
+         D:\FangAI\FangAI_v2\bwapi\Shared\ForceShared.cpp
+         D:\FangAI\FangAI_v2\bwapi\Shared\GameShared.cpp
+         D:\FangAI\FangAI_v2\bwapi\Shared\PlayerShared.cpp
+         D:\FangAI\FangAI_v2\bwapi\Shared\RegionShared.cpp
+         D:\FangAI\FangAI_v2\bwapi\Shared\UnitShared.cpp
+         6 File(s) copied
+         D:\FangAI\FangAI_v2\bwapi\Shared\Templates.h
+         1 File(s) copied
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\FangAI\FangAI_v2\bwapi\Release\BWAPILIB.lib" /NOLOGO Release\AIModule.obj
+         Release\BulletType.obj
+         Release\BWAPI.obj
+         Release\Color.obj
+         Release\DamageType.obj
+         Release\Error.obj
+         Release\Event.obj
+         Release\ExplosionType.obj
+         Release\Filters.obj
+         Release\Forceset.obj
+         Release\Game.obj
+         Release\GameType.obj
+         Release\Order.obj
+         Release\Player.obj
+         Release\Playerset.obj
+         Release\PlayerType.obj
+         Release\Position.obj
+         Release\PositionUnit.obj
+         Release\Race.obj
+         Release\Region.obj
+         Release\Regionset.obj
+         Release\TechType.obj
+         Release\Unit.obj
+         Release\Unitset.obj
+         Release\UnitCommand.obj
+         Release\UnitCommandType.obj
+         Release\UnitSizeType.obj
+         Release\UnitType.obj
+         Release\UpgradeType.obj
+         Release\WeaponType.obj
+         WeaponType.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+         BWAPILIB.vcxproj -> D:\FangAI\FangAI_v2\bwapi\Release\BWAPILIB.lib
+       PostBuildEvent:
+         COPY /y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPILIB.lib" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\lib\BWAPI.lib"
+         COPY /y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPILIB.lib" "..\lib\BWAPI.lib"
+         COPY /y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPILib.pdb" "D:\FangAI\FangAI_v2\bwapi\..\Release_Binary\lib\BWAPILib.pdb"
+         COPY /y "D:\FangAI\FangAI_v2\bwapi\Release\BWAPILib.pdb" "..\lib\BWAPILib.pdb"
+         
+         :VCEnd
+                 1 file(s) copied.
+                 1 file(s) copied.
+                 1 file(s) copied.
+                 1 file(s) copied.
+     1>Done Building Project "D:\FangAI\FangAI_v2\bwapi\BWAPILIB\BWAPILIB.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.96

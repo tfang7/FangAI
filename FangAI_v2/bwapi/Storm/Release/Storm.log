@@ -1,0 +1,17 @@
+﻿Build started 12/20/2016 3:38:47 PM.
+     1>Project "D:\FangAI\FangAI_v2\bwapi\Storm\Storm.vcxproj" on node 5 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W4 /WX- /MP /O2 /Ob2 /Oi /Ot /Oy /GT /GL /D NOMINMAX /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D STORM_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MT /Zp1 /GS- /fp:precise /Zc:wchar_t /Zc:forScope /GR- /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /wd4100 /wd28251 /wd6101 /analyze- /FC /errorReport:prompt storm.cpp
+         storm.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\FangAI\FangAI_v2\bwapi\Release\Storm.dll" /NOLOGO /DEF:"storm.def" /MANIFEST:NO /PDB:"D:\FangAI\FangAI_v2\bwapi\Release\Storm.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /BASE:"0x15000000" /DYNAMICBASE:NO /IMPLIB:"D:\FangAI\FangAI_v2\bwapi\Release\Storm.lib" /MACHINE:X86 /SAFESEH /DLL Release\storm.obj
+         storm.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+            Creating library D:\FangAI\FangAI_v2\bwapi\Release\Storm.lib and object D:\FangAI\FangAI_v2\bwapi\Release\Storm.exp
+         Generating code
+         Finished generating code
+         Storm.vcxproj -> D:\FangAI\FangAI_v2\bwapi\Release\Storm.dll
+     1>Done Building Project "D:\FangAI\FangAI_v2\bwapi\Storm\Storm.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.79
