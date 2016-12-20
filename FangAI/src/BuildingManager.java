@@ -1,12 +1,9 @@
 import java.util.ArrayList;
 
-import bwapi.TechType;
-import bwapi.TilePosition;
 import bwapi.Unit;
 import bwapi.UnitType;
 import bwapi.Player;
 import bwapi.Game;
-import bwapi.UpgradeType;
 public class BuildingManager {
 	public BuildingUtil buildUtil;
 	public ArrayList<Base> bases;

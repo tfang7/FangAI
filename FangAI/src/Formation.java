@@ -4,8 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 
 import bwapi.*;
-import bwta.BWTA;
-import bwta.Chokepoint;
 public class Formation {
 	public HashMap<Integer, Position> slots = new HashMap<Integer, Position>();
 	public boolean check;
